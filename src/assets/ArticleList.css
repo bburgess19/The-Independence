@@ -1,0 +1,14 @@
+#articles-wrapper {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4.0rem 2.2rem;
+    max-width: 1440px;
+    padding: 36px;
+    margin: 0 auto;
+}
+
+#articles-wrapper img {
+    width: 432px;
+    height: 240px;
+}

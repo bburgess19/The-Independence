@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+#expanded-nav {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 10;
+    background-color: #fff;
+    color: black;
+    right: 0;
+    top: 0;
+    width: 100%;
+    transition: opacity 0.3s transform 0.3s;
+    transform-origin: top;
+    padding-bottom: 30px;
+}
+
+#expanded-nav.inactive {
+    display: none;
+    opacity: 0;
+    transform: scaleY();
+}
+
+#expanded-nav.active {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+#expanded-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#expanded-nav p {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+#expanded-nav p:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+ul {
+    padding: 0;
+}
+
+#categories li {
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+
+#categories li a {
+    text-decoration: none;
+    margin: 0;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+    font-size: 42px;
+    text-decoration: none;
+}
+
+#categories li a:hover {
+    text-decoration: underline;
+}
+
+#art {
+    color: #8ECAE6;
+}
+
+#diaspora {
+    color: #219EBC;
+}
+
+#politics {
+    color: #023047;
+}
+
+#science {
+    color: #2D6A4F;
+}
+
+#sports {
+    color: #1B4332;
+}
