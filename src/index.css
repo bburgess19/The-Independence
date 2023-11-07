@@ -1,3 +1,11 @@
+:root {
+  --art: #8ECAE6;
+  --diaspora: #219EBC;
+  --politics: #023047;
+  --science: #2D6A4F;
+  --sports: #1B4332;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

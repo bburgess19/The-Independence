@@ -13,8 +13,8 @@ function Gallery() {
                     </div>
                     <div className="gradient-overlay"></div>
                     <div id="image-text">
-                        <h2 id="image-header"><strong>“No Bad Sharks in Bim”</strong></h2>
-                        <h5 id="image-description">A longer description here</h5>
+                        <h2 id="image-header"><strong>“No Bad Sharks in Bim”: Kendall Roy, Offshore Capital, and Caribbean Reparations</strong></h2>
+                        <h5 id="image-description"></h5>
                     </div>
                 </div>
             </div>

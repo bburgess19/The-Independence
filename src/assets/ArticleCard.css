@@ -26,7 +26,11 @@
     font-weight: 500;
 }
 
-.hover-highlight.article-card-image::after {
+.article-card-image::after {
+    display: none
+}
+
+.article-card-image.hover-highlight::after {
     content: "";
     display: block;
     position: absolute;
@@ -38,7 +42,6 @@
     box-sizing: content-box;
     overflow: hidden;
 }
-
 
 h3 {
     font-family: "Academia Book Pro";

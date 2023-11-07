@@ -1,6 +1,7 @@
-import '../../../assets/NavbarStyles.css';
+import '../../assets/NavbarStyles.css';
 import {useState, useEffect, useRef} from 'react'
-import ExpandedMenu from '../../Auxiliary/ExpandedMenu';
+import {Link} from 'react-router-dom';
+import ExpandedMenu from '../Auxiliary/ExpandedMenu';
 
 export default function Navbar() {
     const [clicked, setClicked] = useState(false);
@@ -55,11 +56,11 @@ export default function Navbar() {
 
                 <div>
                     <ul id="navbar">
-                        <li><a href="index.html">Home</a></li>
+                        <li><Link to="/">Home</Link></li>
                         <span className="nav-separator">/</span>
-                        <li><a href="index.html">Articles</a></li>
+                        <li><Link to="/articles">Articles</Link></li>
                         <span className="nav-separator">/</span>
-                        <li><a href="index.html">About</a></li>
+                        <li><Link to="/about">About</Link></li>
                     </ul>
 
                 </div>
