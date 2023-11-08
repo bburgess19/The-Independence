@@ -1,5 +1,50 @@
 :root {
   --independence-max-width: 1440px;
+  --art-color: #8ECAE6;
+  --diaspora-color: #219EBC;
+  --politics-color: #023047;
+  --science-color: #2D6A4F;
+  --sports-color: #1B4332;
+}
+
+.art {
+  color: var(--art-color);
+}
+
+.diaspora {
+  color: var(--diaspora-color);
+}
+
+.politics {
+  color: var(--politics-color);
+}
+
+.science {
+  color: var(--science-color);
+}
+
+.sports {
+  color: var(--sports-color);
+}
+
+.art::after {
+  background-color: var(--art-color);
+}
+
+.diaspora::after {
+  background-color: var(--diaspora-color);
+}
+
+.politics::after {
+  background-color: var(--politics-color);
+}
+
+.science::after {
+  background-color: var(--science-color);
+}
+
+.sports::after {
+  background-color: var(--sports-color);
 }
 
 .App {

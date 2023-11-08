@@ -4,6 +4,13 @@ import '../../../assets/ArticleCard.css'
 
 export default function ArticleCard(props) {
     const [isHovering, setIsHovering] = useState(false);
+    const articleGenres = {
+        "Art": ".art",
+        "Black Body & Diaspora": ".diaspora",
+        "Politics & Economics": ".politics",
+        "Science & Technology": ".science",
+        "Sports": ".sports"
+    }
 
     return (
         <>
@@ -13,7 +20,7 @@ export default function ArticleCard(props) {
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
             >
-                <div className={`${isHovering ? 'hover-highlight' : ''} article-card-image`}>
+                <div className={`${isHovering ? `hover-highlight ${articleGenres[props.genre]}` : ''} article-card-image`}>
                     <img src={props.article.thumbnail} alt="Dummy" className={isHovering ? 'hover-highlight' : ''} />
                 </div>
                 <p className={`${isHovering ? 'hover-highlight' : ''} article-banner`}> {props.article.type} / {props.article.genre}</p>
