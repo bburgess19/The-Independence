@@ -22,10 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
- .firebaserc
- firebase.json
- firestore-debug.log
- firestore.indexes.json
- firestore.rules
- local-db/
- ui-debug.log
+.firebaserc
+firebase.json
+firestore-debug.log
+firestore.indexes.json
+firestore.rules
+local-db/
+ui-debug.log
