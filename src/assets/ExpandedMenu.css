@@ -65,23 +65,3 @@ ul {
 #categories li a:hover {
     text-decoration: underline;
 }
-
-#art {
-    color: #8ECAE6;
-}
-
-#diaspora {
-    color: #219EBC;
-}
-
-#politics {
-    color: #023047;
-}
-
-#science {
-    color: #2D6A4F;
-}
-
-#sports {
-    color: #1B4332;
-}
