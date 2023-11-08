@@ -4,9 +4,8 @@
     row-gap: 10px;
 }
 
-.hover-highlight {
+.article-card-wrapper {
     cursor: pointer;
-    color: rgba(150, 150, 0, 0.7);
 }
 
 .article-card-image {
@@ -40,6 +39,26 @@
     height: 100%;
     box-sizing: content-box;
     overflow: hidden;
+}
+
+.article-card-image.hover-highlight.art::after {
+    background-color: rgba(var(--art-color), 0.4);
+}
+
+.article-card-image.hover-highlight.diaspora::after {
+    background-color: rgba(var(--diaspora-color), 0.4);
+}
+
+.article-card-image.hover-highlight.politics::after {
+    background-color: rgba(var(--politics-color), 0.4);
+}
+
+.article-card-image.hover-highlight.science::after {
+    background-color: rgba(var(--science-color), 0.4);
+}
+
+.article-card-image.hover-highlight.sports::after {
+    background-color: rgba(var(--sports-color), 0.4);
 }
 
 h3 {
