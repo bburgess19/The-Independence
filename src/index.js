@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home/components/index.js'
 import Layout from './pages/Layout/Layout';
+import Articles from './pages/Genre/index.js';
 import './App.css'
 
 export default function App() {
@@ -15,6 +16,11 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/about" element={<p>About page!</p>} />
+            <Route path="/art" element={<Articles genre="Art" />} />
+            <Route path="/black-body-and-diaspora" element={<Articles genre="Black Body & Diaspora" />} />
+            <Route path="/politics-and-economics" element={<Articles genre="Politics & Economics" />} />
+            <Route path="/science-and-technology" element={<Articles genre="Science & Technology" />} />
+            <Route path="/sports" element={<Articles genre="Sports" />} />
             <Route path="/articles" element={<p>Articles page!</p>} />
           </Route>
         </Routes>
