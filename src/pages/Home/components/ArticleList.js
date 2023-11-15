@@ -5,7 +5,7 @@ import {useState} from 'react';
 import {useEffect} from 'react';
 import {getDocs, collection} from "firebase/firestore"
 
-function ArticleList() {
+function ArticleList(props) {
     const [articles, setArticles] = useState([]);
     const articlesCollection = collection(db, "articles");
 
@@ -19,6 +19,12 @@ function ArticleList() {
                     id: doc.id
                 }));
 
+                if (props.genre != null) {
+                    filteredData = filteredData.filter(article => article.genre === props.genre);
+                } else {
+                    console.log("props were empty for ArticleList");
+                }
+
                 filteredData = filteredData.sort((a, b) => new Date(a.upload_date) - new Date(b.upload_date)).slice(0, 6);
                 setArticles(filteredData);
             } catch (err) {
@@ -27,7 +33,7 @@ function ArticleList() {
         };
 
         getArticles();
-    }, [articlesCollection]);
+    }, [articlesCollection, props]);
 
 
     return (
