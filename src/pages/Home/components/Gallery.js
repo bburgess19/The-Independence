@@ -8,7 +8,7 @@ function Gallery() {
         <>
             <div id="gallery-wrapper">
                 <div className="container">
-                    <div>
+                    <div id="gallery-image-wrapper">
                         <img id="gallery-image" src={image} alt="TODO" />
                     </div>
                     <div className="gradient-overlay"></div>
