@@ -1,0 +1,12 @@
+#sub-gallery-banner {
+    background-color: rgba(140, 140, 140, 1);
+    padding: 15px 0;
+}
+
+#sub-gallery-title {
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1400px;
+}
