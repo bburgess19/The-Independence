@@ -4,7 +4,6 @@
 
 #gallery-wrapper {
     background-color: rgb(39, 39, 39);
-    padding-bottom: 20px;
 }
 
 .container {
@@ -35,9 +34,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    animation: revealFromLeft 0.5s forwards;
     pointer-events: none;
     /* Allows interactions with elements beneath the overlay */
 }
@@ -78,4 +77,37 @@
     position: absolute;
     object-position: 50% 50%;
     object-fit: cover;
+}
+
+#gallery-image-wrapper::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: rgb(39, 39, 39);
+    top: 0;
+    right: 0;
+    height: 100%;
+    animation: hideFromRight 0.5s forwards;
+}
+
+@keyframes revealFromLeft {
+    from {
+        animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1.0);
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes hideFromRight {
+    from {
+        animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1.0);
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
 }
