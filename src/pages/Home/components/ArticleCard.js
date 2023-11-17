@@ -24,7 +24,7 @@ export default function ArticleCard(props) {
                     <img src={props.article.thumbnail} alt="Dummy" className={isHovering ? 'hover-highlight' : ''} />
                 </div>
                 <p className={`${isHovering ? articleGenres[props.article.genre] : ''} article-banner`}> {props.article.type} / {props.article.genre}</p>
-                <h3>{props.article.title}</h3>
+                <h3 className={"article-title"}>{props.article.title}</h3>
                 <p>{props.article.subtitle}</p>
                 <p className={`${isHovering ? articleGenres[props.article.genre] : ''} author`}>{props.article.author}</p>
             </div >

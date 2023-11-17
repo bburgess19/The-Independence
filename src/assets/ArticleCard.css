@@ -12,6 +12,17 @@
     position: relative;
 }
 
+.article-card-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    right: 0;
+    width: 100%;
+    animation: hideFromTop 0.5s;
+}
+
 .article-card-image img {
     display: block;
 }
@@ -23,10 +34,6 @@
 
 .author {
     font-weight: 500;
-}
-
-.article-card-image::after {
-    display: none
 }
 
 .article-card-image.hover-highlight::after {
@@ -61,8 +68,34 @@
     background-color: rgba(var(--sports-color), 0.4);
 }
 
-h3 {
+.article-title {
     font-family: "Academia Book Pro";
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
+    animation: fadeInFromBottom 0.9s forwards;
+}
+
+@keyframes hideFromTop {
+    from {
+        height: 100%;
+        animation-timing-function: cubic-bezier(0.04, 0.83, 0.06, 1.0);
+    }
+
+    to {
+        height: 0%;
+        display: none;
+    }
+}
+
+@keyframes fadeInFromBottom {
+    from {
+        animation-timing-function: ease-in;
+        opacity: 0;
+        bottom: -100;
+    }
+
+    to {
+        opacity: 1;
+        bottom: 0;
+    }
 }
