@@ -1,4 +1,5 @@
 import {useState} from "react"
+import {Link} from "react-router-dom";
 import '../../assets/ExpandedMenu.css'
 
 export default function ExpandedMenu() {
@@ -10,11 +11,11 @@ export default function ExpandedMenu() {
                 <div id="expanded-menu-wrapper">
                     <p onClick={() => setClosed(!closed)}>Close</p>
                     <ul id="categories">
-                        <li><a className="category art" href="/">Art</a></li>
-                        <li><a className="category diaspora" href="/">Black Body & Diaspora</a></li>
-                        <li><a className="category politics" href="/">Politics & Economics</a></li>
-                        <li><a className="category science" href="/">Science & Technology</a></li>
-                        <li><a className="category sports" href="/">Sports</a></li>
+                        <li><Link className="article-link" to="/Art"><a className="category art" href="/">Art</a></Link></li>
+                        <li><Link className="article-link" to="/black-body-and-diaspora"><a className="category diaspora" href="/">Black Body & Diaspora</a></Link></li>
+                        <li><Link className="article-link" to="/politics-and-economics"><a className="category politics" href="/">Politics & Economics</a></Link></li>
+                        <li><Link className="article-link" to="/science-and-technology"><a className="category science" href="/">Science & Technology</a></Link></li>
+                        <li><Link className="article-link" to="/sports"><a className="category sports" href="/">Sports</a></Link></li>
                     </ul>
                 </div>
             </nav>
