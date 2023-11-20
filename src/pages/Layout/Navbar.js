@@ -12,7 +12,6 @@ export default function Navbar() {
 
     useEffect(() => {
         let handler = (e) => {
-            console.log(menuRef)
             if (!menuRef.current.contains(e.target)) {
                 setExpandMenu(false);
             }

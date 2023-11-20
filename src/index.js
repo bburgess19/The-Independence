@@ -7,6 +7,7 @@ import Home from './pages/Home/components/index.js'
 import Layout from './pages/Layout/Layout';
 import Articles from './pages/Genre/index.js';
 import './App.css'
+import Article from './pages/Article/components/index.js';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/science-and-technology" element={<Articles genre="Science & Technology" />} />
             <Route path="/sports" element={<Articles genre="Sports" />} />
             <Route path="/articles" element={<p>Articles page!</p>} />
+            <Route path="/articles/:title" element={<Article />} />
           </Route>
         </Routes>
       </BrowserRouter>

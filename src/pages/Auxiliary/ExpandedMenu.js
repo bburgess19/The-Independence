@@ -11,11 +11,11 @@ export default function ExpandedMenu() {
                 <div id="expanded-menu-wrapper">
                     <p onClick={() => setClosed(!closed)}>Close</p>
                     <ul id="categories">
-                        <li><Link className="article-link" to="/Art"><a className="category art" href="/">Art</a></Link></li>
-                        <li><Link className="article-link" to="/black-body-and-diaspora"><a className="category diaspora" href="/">Black Body & Diaspora</a></Link></li>
-                        <li><Link className="article-link" to="/politics-and-economics"><a className="category politics" href="/">Politics & Economics</a></Link></li>
-                        <li><Link className="article-link" to="/science-and-technology"><a className="category science" href="/">Science & Technology</a></Link></li>
-                        <li><Link className="article-link" to="/sports"><a className="category sports" href="/">Sports</a></Link></li>
+                        <li><Link className="article-link category art" to="/Art">Art</Link></li>
+                        <li><Link className="article-link category diaspora" to="/black-body-and-diaspora">Black Body & Diaspora</Link></li>
+                        <li><Link className="article-link category politics" to="/politics-and-economics">Politics & Economics</Link></li>
+                        <li><Link className="article-link category science" to="/science-and-technology">Science & Technology</Link></li>
+                        <li><Link className="article-link category sports" to="/sports">Sports</Link></li>
                     </ul>
                 </div>
             </nav>
