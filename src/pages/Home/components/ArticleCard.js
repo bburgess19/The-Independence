@@ -20,7 +20,7 @@ export default function ArticleCard(props) {
                 onMouseEnter={() => setIsHovering(true)}
                 onMouseLeave={() => setIsHovering(false)}
             >
-                <Link className="article-card-link" to={`/articles/${props.article.slug}`}>
+                <Link className="article-card-link" to={`/articles/${props.article.slug}`} article={props.article}>
                     <div className={`${isHovering ? `hover-highlight ${articleGenres[props.article.genre]}` : ''} article-card-image`}>
                         <img src={props.article.thumbnail} alt="Dummy" className={isHovering ? 'hover-highlight' : ''} />
                     </div>
