@@ -5,7 +5,9 @@
 
 
 nav {
-    position: sticky;
+    position: fixed;
+    width: 100vw;
+    height: var(--nav-bar-height, 130px);
     top: 0;
     z-index: 5;
     display: flex;

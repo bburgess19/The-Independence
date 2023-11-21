@@ -4,6 +4,8 @@
 
 #gallery-wrapper {
     background-color: rgb(39, 39, 39);
+    padding-top: var(--nav-bar-height, 130px);
+    padding-bottom: 20px;
 }
 
 .container {
