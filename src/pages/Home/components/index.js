@@ -9,7 +9,7 @@ function Home() {
             <div id="sub-gallery-banner">
                 <h2 id="sub-gallery-title">A Publication About Black Experiences</h2>
             </div>
-            <div id="page-wrapper">
+            <div className="page-wrapper">
                 <ArticleList />
             </div>
         </>
