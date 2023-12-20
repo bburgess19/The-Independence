@@ -50,7 +50,7 @@ export default function Navbar() {
 
                 </div>
                 <div>
-                    <img src={`${process.env.PUBLIC_URL}/images/The Independence Logo.png`} alt="The Independence Logo" />
+                    <Link to="/"><img src={`${process.env.PUBLIC_URL}/images/The Independence Logo.png`} alt="The Independence Logo" /></Link>
                 </div>
 
                 <div>
