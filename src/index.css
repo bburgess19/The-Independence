@@ -1,9 +1,11 @@
 :root {
-  --art: #8ECAE6;
-  --diaspora: #219EBC;
+  --art: #8ecae6;
+  --diaspora: #219ebc;
   --politics: #023047;
-  --science: #2D6A4F;
-  --sports: #1B4332;
+  --science: #2d6a4f;
+  --sports: #1b4332;
+  --nav-bar-height: 130px;
+  --nav-bar-height-thin: 80px;
 }
 
 * {
@@ -14,14 +16,14 @@
 body {
   margin: 0;
   line-height: 1.4;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

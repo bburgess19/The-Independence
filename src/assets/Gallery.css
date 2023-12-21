@@ -1,113 +1,121 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #gallery-wrapper {
-    background-color: rgb(39, 39, 39);
+  background-color: rgb(39, 39, 39);
+  padding-top: var(--nav-bar-height, 130px);
+  padding-bottom: 20px;
 }
 
 .container {
-    position: relative;
-    display: grid;
-    max-width: 1440px;
-    height: 576px;
-    margin: 0 auto;
-    grid-template: "main-tl main-tc main-tr" 0.5fr
-        "main-cl main-cc main-cr" 1fr
-        "main-bl main-bc main-br" 0.5fr
-        "attribution attribution attribution" auto / 0.5fr 1fr 0.5fr;
+  position: relative;
+  display: grid;
+  max-width: 1440px;
+  height: 576px;
+  margin: 0 auto;
+  grid-template:
+    "main-tl main-tc main-tr" 0.5fr
+    "main-cl main-cc main-cr" 1fr
+    "main-bl main-bc main-br" 0.5fr
+    "attribution attribution attribution" auto / 0.5fr 1fr 0.5fr;
 }
 
 .gallery {
-    display: grid;
-    height: 100%;
-    grid-template: "main-tl main-tc main-tr" 0.5fr
-        "main-cl main-cc main-cr" 1fr
-        "main-bl main-bc main-br" 0.5fr
-        "attribution attribution attribution" auto / 0.5fr 1fr 0.5fr;
-    max-width: 100%;
-    max-height: 100%;
-    min-height: 17rem;
+  display: grid;
+  height: 100%;
+  grid-template:
+    "main-tl main-tc main-tr" 0.5fr
+    "main-cl main-cc main-cr" 1fr
+    "main-bl main-bc main-br" 0.5fr
+    "attribution attribution attribution" auto / 0.5fr 1fr 0.5fr;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 17rem;
 }
 
-.gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
-    animation: revealFromLeft 0.5s forwards;
-    pointer-events: none;
-    /* Allows interactions with elements beneath the overlay */
+.gradient-overlay-anim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  );
+  animation: revealFromLeft 0.5s forwards;
+  pointer-events: none;
+  /* Allows interactions with elements beneath the overlay */
 }
 
 #image-header {
-    font-size: 3.4rem;
-    font-weight: 400;
-    font-family: "Academica Book Pro", Times, Georgia, serif;
+  font-size: 3.4rem;
+  font-weight: 400;
+  font-family: "Academica Book Pro", Times, Georgia, serif;
 }
 
 #image-description {
-    font-size: 1.5rem;
-    font-family: "Atlas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: normal;
-    line-height: 1.4;
-    max-width: 48rem;
-    width: 100%;
-    height: 100%;
+  font-size: 1.5rem;
+  font-family: "Atlas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.4;
+  max-width: 48rem;
+  width: 100%;
+  height: 100%;
 }
 
 #image-text {
-    display: flex;
-    flex-direction: column;
-    grid-area: 2 / 2 / 4 / 4;
-    flex-wrap: nowrap;
-    align-items: flex-end;
-    justify-content: flex-end;
-    position: absolute;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Add a shadow */
+  display: flex;
+  flex-direction: column;
+  grid-area: 2 / 2 / 4 / 4;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: absolute;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Add a shadow */
 }
 
 #gallery-image {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-position: 50% 50%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-position: 50% 50%;
+  object-fit: cover;
 }
 
 #gallery-image-wrapper::after {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: rgb(39, 39, 39);
-    top: 0;
-    right: 0;
-    height: 100%;
-    animation: hideFromRight 0.5s forwards;
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: rgb(39, 39, 39);
+  top: 0;
+  right: 0;
+  height: 100%;
+  animation: hideFromRight 0.5s forwards;
 }
 
 @keyframes revealFromLeft {
-    from {
-        animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1.0);
-        width: 0;
-    }
+  from {
+    animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1);
+    width: 0;
+  }
 
-    to {
-        width: 100%;
-    }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes hideFromRight {
-    from {
-        animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1.0);
-        width: 100%;
-    }
+  from {
+    animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1);
+    width: 100%;
+  }
 
-    to {
-        width: 0%;
-    }
+  to {
+    width: 0%;
+  }
 }

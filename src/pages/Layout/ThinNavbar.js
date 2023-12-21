@@ -1,11 +1,12 @@
-import "../../assets/NavbarStyles.css";
+import "./assets/ThinNavbar.css";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ExpandedMenu from "../Auxiliary/ExpandedMenu";
 
-export default function Navbar() {
+export default function ThinNavbar() {
   const [clicked, setClicked] = useState(false);
   const [isMenuExpanded, setExpandMenu] = useState(false);
+
   let ACTIVE = "active";
   let menuRef = useRef();
 
@@ -68,11 +69,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav id="main-nav">
+      <nav id="thin-navbar-wrapper">
         <div id="expand-menu">
-          <p onClick={() => toggleMenu()}>Menu</p>
+          <span onClick={() => toggleMenu()}>Menu</span>
           <div ref={menuRef}>
-            <ExpandedMenu isOpen={isMenuExpanded} />
+            <ExpandedMenu />
           </div>
           <span className="nav-separator">/</span>
           <div id="social-media-wrapper">
@@ -93,17 +94,13 @@ export default function Navbar() {
             </a>
           </div>
         </div>
-        <div>
-          <Link to="/">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/The Independence Logo.png`}
-              alt="The Independence Logo"
-            />
-          </Link>
-        </div>
+
+        <Link id="independence-header" to="/">
+          The Independence
+        </Link>
 
         <div>
-          <ul id="navbar">
+          <ul id="thin-navbar">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -120,9 +117,9 @@ export default function Navbar() {
         <div id="mobile">
           <i
             className={`fas fa-${clicked ? "times" : "bars"}`}
-            onClick={toggleMenu}
+            onClick={toggleMenuMobile}
           ></i>
-          <div id="shadow-overlay" onClick={toggleMenu}></div>
+          <div id="shadow-overlay" onClick={toggleMenuMobile}></div>
         </div>
       </nav>
     </>

@@ -1,0 +1,93 @@
+#thin-navbar-wrapper {
+  position: absolute;
+  display: grid;
+  width: 100vw;
+  height: var(--nav-bar-height-thin);
+  top: 0;
+  z-index: 5;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: top;
+  padding-top: 5px;
+  color: white;
+}
+
+#independence-header {
+  justify-self: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+  font-family: Times, Georgia, serif;
+  color: white;
+  text-decoration: none;
+}
+
+#thin-navbar-wrapper #expand-menu {
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#expand-menu > span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#expand-menu > span {
+  position: relative;
+}
+
+#expand-menu > span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  right: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-in-out;
+}
+
+#expand-menu > span:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+#thin-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#thin-navbar li {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+}
+
+#thin-navbar li a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+#thin-navbar li a::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  left: 20px;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-in-out;
+}
+
+#thin-navbar li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

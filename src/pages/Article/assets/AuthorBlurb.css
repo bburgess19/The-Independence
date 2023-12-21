@@ -1,0 +1,32 @@
+#profile-wrapper {
+    display: flex;
+    max-width: 1280px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 20px 24px;
+    padding-bottom: 40px;
+    column-gap: 10%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#profile-wrapper img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+}
+
+#author-details p {
+    text-align: left;
+    font-size: 24px;
+    max-width: 600px;
+    font-weight: 300;
+    line-height: 1.8rem;
+}
+
+#author-details h3 {
+    font-weight: 700;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
