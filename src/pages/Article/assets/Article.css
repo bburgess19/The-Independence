@@ -1,1 +1,22 @@
-#subtitle {}
+#article-body {
+  margin-top: 30px;
+  max-width: 1280px;
+}
+
+#article-body p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+#article-body img {
+  width: 100%;
+}
+
+#article-body a {
+  color: black;
+}
+
+#article-body a:hover {
+  color: #404040;
+}

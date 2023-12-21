@@ -1,159 +1,163 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
-
 nav {
-    position: fixed;
-    width: 100vw;
-    height: var(--nav-bar-height, 130px);
-    top: 0;
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(39, 39, 39);
-    padding: 20px 80px;
-    color: white
-        /* box-shadow: 0 5px 15px rgb(0, 0, 0, 0.6); */
+  position: fixed;
+  width: 100vw;
+  height: var(--nav-bar-height, 130px);
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(39, 39, 39);
+  padding: 20px 80px;
+  color: white;
 }
 
 img {
-    width: 86px;
+  width: 86px;
 }
 
 #expand-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
 #expand-menu a,
-#expand-menu>p {
-    position: relative;
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin: 20px;
-    cursor: pointer;
+#expand-menu > p {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 20px;
+  cursor: pointer;
+}
+
+#social-media-wrapper {
+  position: relative;
+}
+
+#social-media-wrapper * {
+  position: absolute;
+  bottom: 0;
 }
 
 svg {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
-    bottom: -3px
+  width: 20px;
+  height: 20px;
+  fill: #fff;
+  bottom: -3px;
 }
 
 #insta-logo:hover {
-    color: red;
+  color: red;
 }
 
 #navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 #navbar li {
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
 }
 
 #navbar li a {
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: white;
-    transition: 0.3s ease-in-out;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  transition: 0.3s ease-in-out;
 }
 
-#expand-menu>p::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 1px;
-    bottom: -4px;
-    right: 0;
-    background-color: white;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-in-out;
+#expand-menu > p::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  right: 0;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-in-out;
 }
 
-#expand-menu>p:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+#expand-menu > p:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 #navbar li a::after {
-    content: "";
-    position: absolute;
-    width: 60%;
-    transform: scaleX(0);
-    height: 1px;
-    bottom: -4px;
-    left: 20px;
-    background-color: white;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-in-out;
+  content: "";
+  position: absolute;
+  width: 60%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -4px;
+  left: 20px;
+  background-color: white;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-in-out;
 }
-
 
 #navbar li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
-
 
 #mobile {
-    display: none;
+  display: none;
 }
 
-@media screen and (max-width:769px) {
-    #navbar {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 0;
-        right: -300px;
-        width: 300px;
-        height: 100vh;
-        right: 0px;
-        background-color: rgb(22, 22, 22);
-    }
+@media screen and (max-width: 769px) {
+  #navbar {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    right: 0px;
+    background-color: rgb(22, 22, 22);
+  }
 
-    #navbar.active {
-        display: flex;
-        z-index: 10;
-    }
+  #navbar.active {
+    display: flex;
+    z-index: 10;
+  }
 
-    #mobile {
-        display: block;
-    }
+  #mobile {
+    display: block;
+  }
 
-    #shadow-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.7);
-        display: none;
-    }
+  #shadow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+  }
 
-    #shadow-overlay.active {
-        display: block;
-        z-index: 5;
-    }
+  #shadow-overlay.active {
+    display: block;
+    z-index: 5;
+  }
 
-    .nav-separator {
-        display: none;
-    }
+  .nav-separator {
+    display: none;
+  }
 }
