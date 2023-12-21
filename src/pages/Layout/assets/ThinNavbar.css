@@ -1,3 +1,16 @@
+#thin-navbar-wrapper {
+  position: absolute;
+  display: grid;
+  width: 100vw;
+  height: var(--nav-bar-height-thin);
+  top: 0;
+  z-index: 5;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: top;
+  padding-top: 5px;
+  color: white;
+}
+
 #independence-header {
   justify-self: center;
   font-size: 2.2rem;
@@ -7,19 +20,8 @@
   text-decoration: none;
 }
 
-#thin-navbar-wrapper {
-  height: var(--nav-bar-height-thin);
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: top;
-  padding-top: 5px;
-}
-
 #thin-navbar-wrapper #expand-menu {
-  position: relative;
+  align-items: flex-start;
   gap: 20px;
 }
 

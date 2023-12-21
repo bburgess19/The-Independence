@@ -3,13 +3,13 @@
   margin: 0;
 }
 
-nav {
+#main-nav {
   position: fixed;
+  display: flex;
   width: 100vw;
   height: var(--nav-bar-height, 130px);
   top: 0;
   z-index: 5;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: rgb(39, 39, 39);

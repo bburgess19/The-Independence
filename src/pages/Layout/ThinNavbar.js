@@ -5,7 +5,7 @@ import ExpandedMenu from "../Auxiliary/ExpandedMenu";
 
 export default function ThinNavbar() {
   const [clicked, setClicked] = useState(false);
-  const [expandMenu, setExpandMenu] = useState(false);
+  const [isMenuExpanded, setExpandMenu] = useState(false);
 
   let ACTIVE = "active";
   let menuRef = useRef();
@@ -25,6 +25,36 @@ export default function ThinNavbar() {
   }, [menuRef]);
 
   const toggleMenu = () => {
+    // Toggle the active/inactive class on #expanded-nav
+    const expanded = document.getElementById("expanded-nav");
+    if (isMenuExpanded) {
+      expanded.classList.remove(ACTIVE);
+      expanded.classList.add("inactive");
+
+      // Remove event listener from #menu-close
+      const close = document.getElementById("menu-close");
+      close.removeEventListener("click", () => {
+        expanded.classList.remove(ACTIVE);
+        expanded.classList.add("inactive");
+      });
+
+      setExpandMenu(false);
+    } else {
+      expanded.classList.add(ACTIVE);
+      expanded.classList.remove("inactive");
+
+      // Add event listener to #menu-close
+      const close = document.getElementById("menu-close");
+      close.addEventListener("click", () => {
+        expanded.classList.remove(ACTIVE);
+        expanded.classList.add("inactive");
+      });
+
+      setExpandMenu(true);
+    }
+  };
+
+  const toggleMenuMobile = () => {
     const navBar = document.getElementById("navbar");
     const shadow = document.getElementById("shadow-overlay");
     if (clicked) {
@@ -41,8 +71,10 @@ export default function ThinNavbar() {
     <>
       <nav id="thin-navbar-wrapper">
         <div id="expand-menu">
-          <span onClick={() => setExpandMenu(!expandMenu)}>Menu</span>
-          <div ref={menuRef}>{expandMenu && <ExpandedMenu />}</div>
+          <span onClick={() => toggleMenu()}>Menu</span>
+          <div ref={menuRef}>
+            <ExpandedMenu />
+          </div>
           <span className="nav-separator">/</span>
           <div id="social-media-wrapper">
             <a
@@ -85,9 +117,9 @@ export default function ThinNavbar() {
         <div id="mobile">
           <i
             className={`fas fa-${clicked ? "times" : "bars"}`}
-            onClick={toggleMenu}
+            onClick={toggleMenuMobile}
           ></i>
-          <div id="shadow-overlay" onClick={toggleMenu}></div>
+          <div id="shadow-overlay" onClick={toggleMenuMobile}></div>
         </div>
       </nav>
     </>

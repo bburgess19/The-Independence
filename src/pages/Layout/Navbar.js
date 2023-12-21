@@ -5,7 +5,7 @@ import ExpandedMenu from "../Auxiliary/ExpandedMenu";
 
 export default function Navbar() {
   const [clicked, setClicked] = useState(false);
-  const [expandMenu, setExpandMenu] = useState(false);
+  const [isMenuExpanded, setExpandMenu] = useState(false);
   let ACTIVE = "active";
   let menuRef = useRef();
 
@@ -24,6 +24,36 @@ export default function Navbar() {
   }, [menuRef]);
 
   const toggleMenu = () => {
+    // Toggle the active/inactive class on #expanded-nav
+    const expanded = document.getElementById("expanded-nav");
+    if (isMenuExpanded) {
+      expanded.classList.remove(ACTIVE);
+      expanded.classList.add("inactive");
+
+      // Remove event listener from #menu-close
+      const close = document.getElementById("menu-close");
+      close.removeEventListener("click", () => {
+        expanded.classList.remove(ACTIVE);
+        expanded.classList.add("inactive");
+      });
+
+      setExpandMenu(false);
+    } else {
+      expanded.classList.add(ACTIVE);
+      expanded.classList.remove("inactive");
+
+      // Add event listener to #menu-close
+      const close = document.getElementById("menu-close");
+      close.addEventListener("click", () => {
+        expanded.classList.remove(ACTIVE);
+        expanded.classList.add("inactive");
+      });
+
+      setExpandMenu(true);
+    }
+  };
+
+  const toggleMenuMobile = () => {
     const navBar = document.getElementById("navbar");
     const shadow = document.getElementById("shadow-overlay");
     if (clicked) {
@@ -38,10 +68,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav>
+      <nav id="main-nav">
         <div id="expand-menu">
-          <p onClick={() => setExpandMenu(!expandMenu)}>Menu</p>
-          <div ref={menuRef}>{expandMenu && <ExpandedMenu />}</div>
+          <p onClick={() => toggleMenu()}>Menu</p>
+          <div ref={menuRef}>
+            <ExpandedMenu isOpen={isMenuExpanded} />
+          </div>
           <span className="nav-separator">/</span>
           <div id="social-media-wrapper">
             <a
