@@ -1,13 +1,14 @@
-import Body from "./Body";
 import TitleImage from "./TitleImage";
 import AuthorBlurb from "./AuthorBlurb";
 import { useEffect, useState } from "react";
 import { db } from "../../../config/firebase.js";
 import { collection, where, query, getDocs } from "firebase/firestore";
 import { useParams } from "react-router-dom";
-import Markdown from "marked-react";
+import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import "../assets/Article.css";
 
-export default function Article(props) {
+export default function Article() {
   const [article, setArticle] = useState({ data: null, id: null });
   const [body, setBody] = useState(null);
   const params = useParams();
@@ -52,13 +53,16 @@ export default function Article(props) {
     }
   }, [article]);
 
+  console.log(<Markdown>{body}</Markdown>);
+
   if (article.data === null) return <h1>Loading...</h1>;
   return (
     <>
       <TitleImage article={article.data} />
       <div className="page-wrapper">
-        <h2 id="subtitle">Here is a subtitle that's decently long</h2>
-        <Markdown>{body}</Markdown>
+        <div id="article-body">
+          <Markdown rehypePlugins={[rehypeRaw]}>{body}</Markdown>
+        </div>
         <AuthorBlurb authorName={article.data.author} />
       </div>
     </>
