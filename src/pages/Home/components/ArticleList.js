@@ -4,19 +4,6 @@ import { db } from "../../../config/firebase";
 import { useState, useEffect, useRef } from "react";
 import { getDocs, collection } from "firebase/firestore";
 
-const fetchNewArticles = (callCount, articles) => {
-  const startIndex = callCount * 3 + 1;
-  const endIndex = callCount * 3 + 4;
-
-  if (startIndex >= 0 && endIndex <= articles.length) {
-    return articles.slice(startIndex, endIndex);
-  } else if (startIndex < articles.length) {
-    return articles.slice(startIndex);
-  } else {
-    console.error("Failed to load new articles");
-  }
-};
-
 function ArticleList(props) {
   const [visibleArticles, setvisibleArticles] = useState([]);
   const [articles, setArticles] = useState([]);
@@ -58,8 +45,6 @@ function ArticleList(props) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Fetch new articles for the view
-            // const newArticles = fetchNewArticles(1, filteredData);
             const nextThreeArticles = articles
               .filter((article) => !visibleArticles.includes(article))
               .slice(0, 3);

@@ -11,9 +11,6 @@ import { Link } from "react-router-dom";
 
 export default function Gallery() {
   const [articleData, setArticleData] = useState(null);
-  const [image, setImage] = useState(
-    `${process.env.PUBLIC_URL}/images/articles/No Bad Sharks 1440x576.jpg`,
-  );
 
   useEffect(() => {
     fetch("/featured.json")
@@ -42,7 +39,6 @@ export default function Gallery() {
             <Link to={`/articles/${article.slug}`} id="image-header">
               <strong>{article.title}</strong>
             </Link>
-            <h5 id="image-description"></h5>
           </div>
         </div>
         <Link to={`/articles/${article.slug}`} className="gallery-link">
