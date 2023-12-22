@@ -1,106 +1,107 @@
 .article-card-wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 }
 
 .article-card-wrapper {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .article-card-link {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 .article-card-image {
-    position: relative;
+  position: relative;
 }
-
 .article-card-image::after {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: #fff;
-    top: 0;
-    right: 0;
-    width: 100%;
-    animation: hideFromTop 0.5s;
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  animation: hideFromTop 0.5s;
+  transition: background-color 0.3s;
 }
 
 .article-card-image img {
-    display: block;
+  display: block;
 }
 
 .article-banner {
-    font-weight: 300;
-    font-family: monospace;
+  font-weight: 300;
+  font-family: monospace;
 }
 
 .author {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .article-card-image.hover-highlight::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: content-box;
-    overflow: hidden;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  overflow: hidden;
 }
 
 .article-card-image.hover-highlight.art::after {
-    background-color: rgba(var(--art-color), 0.4);
+  background-color: rgba(var(--art-color), 0.4);
 }
 
 .article-card-image.hover-highlight.diaspora::after {
-    background-color: rgba(var(--diaspora-color), 0.4);
+  background-color: rgba(var(--diaspora-color), 0.4);
 }
 
 .article-card-image.hover-highlight.politics::after {
-    background-color: rgba(var(--politics-color), 0.4);
+  background-color: rgba(var(--politics-color), 0.4);
 }
 
 .article-card-image.hover-highlight.science::after {
-    background-color: rgba(var(--science-color), 0.4);
+  background-color: rgba(var(--science-color), 0.4);
 }
 
 .article-card-image.hover-highlight.sports::after {
-    background-color: rgba(var(--sports-color), 0.4);
+  background-color: rgba(var(--sports-color), 0.4);
 }
 
 .article-title {
-    font-family: "Academia Book Pro";
-    font-size: 1.6rem;
-    font-weight: 700;
-    animation: fadeInFromBottom 0.9s forwards;
+  font-family: "Academia Book Pro";
+  font-size: 1.6rem;
+  font-weight: 700;
+  animation: fadeInFromBottom 0.9s forwards;
 }
 
 @keyframes hideFromTop {
-    from {
-        height: 100%;
-        animation-timing-function: cubic-bezier(0.04, 0.83, 0.06, 1.0);
-    }
+  from {
+    height: 100%;
+    animation-timing-function: cubic-bezier(0.04, 0.83, 0.06, 1);
+  }
 
-    to {
-        height: 0%;
-        display: none;
-    }
+  to {
+    height: 0%;
+    display: none;
+  }
 }
 
 @keyframes fadeInFromBottom {
-    from {
-        animation-timing-function: ease-in;
-        opacity: 0;
-        bottom: -100;
-    }
+  from {
+    animation-timing-function: ease-in;
+    opacity: 0;
+    bottom: -100;
+  }
 
-    to {
-        opacity: 1;
-        bottom: 0;
-    }
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
 }
