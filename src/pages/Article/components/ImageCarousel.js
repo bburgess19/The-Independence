@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import Markdown from "react-markdown";
@@ -30,30 +29,14 @@ export default function ImageCarousel({ children }) {
     return acc;
   }, []);
 
-  // for (let i = 0; i < children.length; i++) {
-  //   if (children[i].startsWith("#cap#")) {
-  //     imageAndCaption[i - 1] = {
-  //       img: children[i - 1],
-  //       caption: children[i].substring(5),
-  //     };
-  //     imageAndCaption.splice(i, 1);
-  //   } else {
-  //     imageAndCaption.push({ img: children[i], caption: null });
-  //   }
-  // }
-  //
-  console.log(imageAndCaption);
-
   function renderImageSlide(el) {
     return (
-      <>
-        <SwiperSlide key={el.img}>
-          <img src={el.img} alt="alt" />
-          <Markdown components={components} className="carousel-caption">
-            {el.caption}
-          </Markdown>
-        </SwiperSlide>
-      </>
+      <SwiperSlide key={el.img}>
+        <img src={el.img} alt="alt" />
+        <Markdown components={components} className="carousel-caption">
+          {el.caption}
+        </Markdown>
+      </SwiperSlide>
     );
   }
 

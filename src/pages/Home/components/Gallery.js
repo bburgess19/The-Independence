@@ -1,32 +1,83 @@
-import { useState } from "react";
-import "../../../assets/Gallery.css";
+import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectFade, Autoplay, Navigation, Pagination } from "swiper/modules";
 
-function Gallery() {
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "../../../assets/Gallery.css";
+import { Link } from "react-router-dom";
+
+export default function Gallery() {
+  const [articleData, setArticleData] = useState(null);
   const [image, setImage] = useState(
     `${process.env.PUBLIC_URL}/images/articles/No Bad Sharks 1440x576.jpg`,
   );
 
-  return (
-    <>
-      <div id="gallery-wrapper">
-        <div className="container">
-          <div id="gallery-image-wrapper">
-            <img id="gallery-image" src={image} alt="TODO" />
-          </div>
-          <div className="gradient-overlay-anim"></div>
-          <div id="image-text">
-            <h2 id="image-header">
-              <strong>
-                “No Bad Sharks in Bim”: Kendall Roy, Offshore Capital, and
-                Caribbean Reparations
-              </strong>
-            </h2>
+  useEffect(() => {
+    fetch("/featured.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setArticleData(data);
+      })
+      .catch((e) => {
+        console.error("Could not fetch featured article data: " + e);
+      });
+  }, []);
+
+  const renderImageSlide = (article) => {
+    // Use text-position in article to append that style to #image-text
+    let textPosition = article.text_position;
+
+    return (
+      <SwiperSlide key={article.slug}>
+        <div id="gallery-image-wrapper">
+          <img
+            className="gallery-image"
+            src={article.image_path}
+            alt={article.alt}
+          />
+          <div id="image-text" style={{ gridArea: textPosition }}>
+            <Link to={`/articles/${article.slug}`} id="image-header">
+              <strong>{article.title}</strong>
+            </Link>
             <h5 id="image-description"></h5>
           </div>
         </div>
+        <Link to={`/articles/${article.slug}`} className="gallery-link">
+          <span className="gradient-overlay"> </span>
+        </Link>
+      </SwiperSlide>
+    );
+  };
+
+  if (articleData === null) {
+    return <h1>Loading...</h1>;
+  }
+  return (
+    <>
+      <div id="gallery-wrapper">
+        <Swiper
+          spaceBetween={10}
+          centeredSlides={true}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          navigation={true}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          modules={[Autoplay, Navigation, Pagination, EffectFade]}
+          className="gallery-carousel"
+        >
+          {articleData.map((article) => renderImageSlide(article))}
+        </Swiper>
       </div>
     </>
   );
 }
-
-export default Gallery;
