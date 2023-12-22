@@ -1,0 +1,18 @@
+.image-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.image-carousel img {
+  display: inline-block;
+  object-fit: contain;
+  max-height: 400px;
+  width: 100%;
+  justify-self: center;
+}
+
+.image-carousel .carousel-caption {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
