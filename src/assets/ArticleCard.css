@@ -15,7 +15,10 @@
 
 .article-card-image {
   position: relative;
+  overflow: hidden;
+  border-radius: 5px;
 }
+
 .article-card-image::after {
   content: "";
   display: block;
@@ -31,6 +34,11 @@
 
 .article-card-image img {
   display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+.article-card-image:hover img {
+  transform: scale(1.05);
 }
 
 .article-banner {
