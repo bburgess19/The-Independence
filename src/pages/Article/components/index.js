@@ -6,7 +6,20 @@ import { collection, where, query, getDocs } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
+import ImageCarousel from "./ImageCarousel";
 import "../assets/Article.css";
+
+const DivRenderer = (props) => {
+  if (props.className === "image-carousel") {
+    return <ImageCarousel {...props} />;
+  } else {
+    return <div {...props} />;
+  }
+};
+
+const components = {
+  div: DivRenderer,
+};
 
 export default function Article() {
   const [article, setArticle] = useState({ data: null, id: null });
@@ -53,15 +66,15 @@ export default function Article() {
     }
   }, [article]);
 
-  console.log(<Markdown>{body}</Markdown>);
-
   if (article.data === null) return <h1>Loading...</h1>;
   return (
     <>
       <TitleImage article={article.data} />
       <div className="page-wrapper">
         <div id="article-body">
-          <Markdown rehypePlugins={[rehypeRaw]}>{body}</Markdown>
+          <Markdown components={components} rehypePlugins={[rehypeRaw]}>
+            {body}
+          </Markdown>
         </div>
         <AuthorBlurb authorName={article.data.author} />
       </div>
