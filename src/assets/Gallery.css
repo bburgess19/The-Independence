@@ -33,6 +33,7 @@
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
+  border-radius: 5px;
 }
 
 .gallery {
@@ -81,7 +82,6 @@
 
 .gallery-image {
   display: block;
-  border-radius: 5px;
   width: 100%;
   height: 100%;
   position: absolute;
