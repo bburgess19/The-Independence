@@ -93,7 +93,7 @@ export default function Navbar() {
             </a>
           </div>
         </div>
-        <div>
+        <div id="logo-container">
           <Link to="/">
             <img
               src={`${process.env.PUBLIC_URL}/images/The Independence Logo.png`}
