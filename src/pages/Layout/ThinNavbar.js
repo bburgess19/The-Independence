@@ -71,7 +71,9 @@ export default function ThinNavbar() {
     <>
       <nav id="thin-navbar-wrapper">
         <div id="expand-menu">
-          <span onClick={() => toggleMenu()}>Menu</span>
+          <span className="nav-link underlinable" onClick={() => toggleMenu()}>
+            Menu
+          </span>
           <div ref={menuRef}>
             <ExpandedMenu />
           </div>
@@ -102,15 +104,21 @@ export default function ThinNavbar() {
         <div>
           <ul id="thin-navbar">
             <li>
-              <Link to="/">Home</Link>
+              <Link className="nav-link underlinable" to="/">
+                Home
+              </Link>
             </li>
             <span className="nav-separator">/</span>
             <li>
-              <Link to="/articles">Articles</Link>
+              <Link className="nav-link underlinable" to="/articles">
+                Articles
+              </Link>
             </li>
             <span className="nav-separator">/</span>
             <li>
-              <Link to="/about">About</Link>
+              <Link className="nav-link underlinable" to="/about">
+                About
+              </Link>
             </li>
           </ul>
         </div>

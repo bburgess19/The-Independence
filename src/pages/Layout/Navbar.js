@@ -70,11 +70,14 @@ export default function Navbar() {
     <>
       <nav id="main-nav">
         <div id="expand-menu">
-          <p onClick={() => toggleMenu()}>Menu</p>
+          <span className="underlinable nav-link" onClick={() => toggleMenu()}>
+            Menu
+          </span>
           <div ref={menuRef}>
             <ExpandedMenu isOpen={isMenuExpanded} />
           </div>
           <span className="nav-separator">/</span>
+          <div id="spacer"></div>
           <div id="social-media-wrapper">
             <a
               id="insta-logo"
@@ -105,15 +108,21 @@ export default function Navbar() {
         <div>
           <ul id="navbar">
             <li>
-              <Link to="/">Home</Link>
+              <Link className="underlinable" to="/">
+                Home
+              </Link>
             </li>
             <span className="nav-separator">/</span>
             <li>
-              <Link to="/articles">Articles</Link>
+              <Link className="underlinable" to="/articles">
+                Articles
+              </Link>
             </li>
             <span className="nav-separator">/</span>
             <li>
-              <Link to="/about">About</Link>
+              <Link className="underlinable" to="/about">
+                About
+              </Link>
             </li>
           </ul>
         </div>

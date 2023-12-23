@@ -14,7 +14,6 @@
   align-items: center;
   justify-content: space-between;
   background-color: rgb(39, 39, 39);
-  color: white;
 }
 
 #logo-container {
@@ -30,33 +29,23 @@
 
 #expand-menu {
   display: flex;
+  column-gap: 10px;
   align-items: center;
   justify-content: center;
 }
 
-#expand-menu a,
-#expand-menu > p {
-  position: relative;
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 20px;
-  cursor: pointer;
-}
-
 #social-media-wrapper {
+  display: flex;
   position: relative;
+  height: 30px;
+  place-items: end;
 }
 
-#social-media-wrapper * {
-  position: absolute;
-  bottom: 0;
-}
-
-svg {
+#social-media-wrapper svg {
   width: 20px;
   height: 20px;
   fill: #fff;
+  align-self: end;
   bottom: -3px;
 }
 
@@ -83,42 +72,6 @@ svg {
   font-weight: 600;
   color: white;
   transition: 0.3s ease-in-out;
-}
-
-#expand-menu > p::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: -4px;
-  right: 0;
-  background-color: white;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-in-out;
-}
-
-#expand-menu > p:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-#navbar li a::after {
-  content: "";
-  position: absolute;
-  width: 60%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: -4px;
-  left: 20px;
-  background-color: white;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-in-out;
-}
-
-#navbar li a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
 }
 
 #mobile {
@@ -162,9 +115,5 @@ svg {
   #shadow-overlay.active {
     display: block;
     z-index: 5;
-  }
-
-  .nav-separator {
-    display: none;
   }
 }
