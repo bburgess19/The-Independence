@@ -43,13 +43,13 @@
     "main-tl main-tc main-tr" 0.5fr
     "main-cl main-cc main-cr" 1fr
     "main-bl main-bc main-br" 0.5fr
-    "attribution attribution attribution" auto / 0.5fr 1fr 0.5fr;
+    "attribution attribution attribution" auto / 1fr 0.1fr 1fr;
   max-width: 100%;
   max-height: 100%;
   min-height: 17rem;
 }
 
-#image-header {
+.image-header {
   font-size: 3.4rem;
   font-weight: 400;
   font-family: "Academica Book Pro", Times, Georgia, serif;
@@ -57,27 +57,20 @@
   color: white;
 }
 
-#image-description {
-  font-size: 1.5rem;
-  font-family: "Atlas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  line-height: 1.4;
-  max-width: 48rem;
-  width: 100%;
-  height: 100%;
-}
-
-#image-text {
+.image-text {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: flex-end;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 10;
+  text-align: center;
   /* Add a shadow */
+}
+
+.gallery-article-title {
+  font-size: calc(1rem + 1vw);
 }
 
 .gallery-image {
@@ -94,10 +87,11 @@
   grid-template:
     "main-tl main-tc main-tr" 1fr
     "main-cl main-cc main-cr" 0.5fr
-    "main-bl main-bc main-br" 1fr / 1fr 1fr 1fr;
+    "main-bl main-bc main-br" 1fr / 1fr 0.75fr 1fr;
+  align-items: center;
 }
 
-#gallery-image-wrapper @keyframes revealFromLeft {
+@keyframes revealFromLeft {
   from {
     animation-timing-function: cubic-bezier(0.2, 0.2, 0.25, 1);
     width: 0;
@@ -116,5 +110,29 @@
 
   to {
     width: 0%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #gallery-wrapper {
+    height: 384px;
+  }
+
+  #gallery-image-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-text {
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+
+  .gallery-article-title {
+    font-size: 1rem;
   }
 }

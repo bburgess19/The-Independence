@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 
 export default function Gallery() {
   const [articleData, setArticleData] = useState(null);
-
   useEffect(() => {
     fetch("/featured.json")
       .then((response) => response.json())
@@ -24,7 +23,7 @@ export default function Gallery() {
   }, []);
 
   const renderImageSlide = (article) => {
-    // Use text-position in article to append that style to #image-text
+    // Use text-position in article to append that style to .image-text
     let textPosition = article.text_position;
 
     return (
@@ -35,9 +34,9 @@ export default function Gallery() {
             src={article.image_path}
             alt={article.alt}
           />
-          <div id="image-text" style={{ gridArea: textPosition }}>
-            <Link to={`/articles/${article.slug}`} id="image-header">
-              <strong>{article.title}</strong>
+          <div className="image-text" style={{ gridArea: textPosition }}>
+            <Link to={`/articles/${article.slug}`} className="image-header">
+              <h1 className="gallery-article-title">{article.title}</h1>
             </Link>
           </div>
         </div>
@@ -57,9 +56,6 @@ export default function Gallery() {
         <Swiper
           spaceBetween={10}
           centeredSlides={true}
-          pagination={{
-            clickable: true,
-          }}
           autoplay={{
             delay: 5000,
             disableOnInteraction: false,
