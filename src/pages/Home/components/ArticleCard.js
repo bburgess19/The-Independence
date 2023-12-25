@@ -15,15 +15,15 @@ export default function ArticleCard(props) {
 
   return (
     <>
-      <div
-        className="article-card-wrapper"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
+      <Link
+        className="article-card-link"
+        to={`/articles/${props.article.slug}`}
+        article={props.article}
       >
-        <Link
-          className="article-card-link"
-          to={`/articles/${props.article.slug}`}
-          article={props.article}
+        <div
+          className="article-card-wrapper"
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
         >
           <div
             className={`${
@@ -55,8 +55,8 @@ export default function ArticleCard(props) {
           >
             {props.article.author}
           </p>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </>
   );
 }

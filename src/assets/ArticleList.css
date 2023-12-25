@@ -19,11 +19,6 @@
   margin: 0 auto;
 }
 
-#articles-wrapper img {
-  width: 100%; /* Scale images down to fit their containers */
-  height: auto; /* Maintain aspect ratio */
-}
-
 @media screen and (max-width: 769px) {
   #articles-wrapper {
     grid-template-columns: repeat(2, 1fr);
