@@ -12,40 +12,65 @@ export default function ExpandedMenu({ isOpen }) {
           </p>
           <ul id="categories">
             <li>
-              <Link className="article-link category art" to="/Art">
-                Art
+              <Link className="article-link art" to="/Art">
+                <h3 className="category">Art</h3>
               </Link>
             </li>
             <li>
               <Link
-                className="article-link category diaspora"
+                className="article-link diaspora"
                 to="/black-body-and-diaspora"
               >
-                Black Body & Diaspora
+                <h3 className="category">Black Body & Diaspora</h3>
               </Link>
             </li>
             <li>
               <Link
-                className="article-link category politics"
+                className="article-link politics"
                 to="/politics-and-economics"
               >
-                Politics & Economics
+                <h3 className="category">Politics & Economics</h3>
               </Link>
             </li>
             <li>
               <Link
-                className="article-link category science"
+                className="article-link science"
                 to="/science-and-technology"
               >
-                Science & Technology
+                <h3 className="category">Science & Technology</h3>
               </Link>
             </li>
             <li>
-              <Link className="article-link category sports" to="/sports">
-                Sports
+              <Link className="article-link sports" to="/sports">
+                <h3 className="category">Sports</h3>
               </Link>
             </li>
           </ul>
+          <div id="expand-menu-mobile">
+            <ul>
+              <li>
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <span className="nav-link-separator">/</span>
+              </li>
+              <li>
+                <Link className="nav-link" to="/about">
+                  About
+                </Link>
+              </li>
+              <li>
+                <span className="nav-link-separator">/</span>
+              </li>
+              <li>
+                <Link className="nav-link" to="/articles">
+                  Articles
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </>

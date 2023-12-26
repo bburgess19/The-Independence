@@ -28,14 +28,15 @@
 #expanded-menu-wrapper {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding: 20px 0 0 20px;
 }
 
-#expanded-nav p {
+#menu-close {
   margin-bottom: 20px;
   font-weight: 400;
   font-size: 1.2rem;
   display: inline-block;
+  order: -2;
 }
 
 #expanded-nav p:hover {
@@ -54,13 +55,39 @@ ul {
 
 #categories li a {
   text-decoration: none;
+}
+
+.category {
+  font-family: sans-serif;
   margin: 0;
   font-weight: 600;
-  transition: 0.3s ease-in-out;
-  font-size: 42px;
   text-decoration: none;
 }
 
-#categories li a:hover {
-  text-decoration: underline;
+#expand-menu-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 425px) {
+  #expand-menu-mobile {
+    display: inline-block;
+    order: -1;
+  }
+
+  #expand-menu-mobile ul {
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 10px;
+    margin: 0 20px 20px 0;
+    background: rgb(232, 232, 232);
+    border-radius: 10px;
+    width: auto;
+  }
+
+  #expand-menu-mobile ul a {
+    color: black;
+    font-size: 1.2rem;
+  }
 }

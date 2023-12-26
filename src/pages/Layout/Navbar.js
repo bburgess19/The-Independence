@@ -53,19 +53,6 @@ export default function Navbar() {
     }
   };
 
-  const toggleMenuMobile = () => {
-    const navBar = document.getElementById("navbar");
-    const shadow = document.getElementById("shadow-overlay");
-    if (clicked) {
-      navBar.classList.remove(ACTIVE);
-      shadow.classList.remove(ACTIVE);
-    } else {
-      navBar.classList.add(ACTIVE);
-      shadow.classList.add(ACTIVE);
-    }
-    setClicked(!clicked);
-  };
-
   return (
     <>
       <nav id="main-nav">
@@ -127,13 +114,6 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
-        </div>
-        <div id="mobile">
-          <i
-            className={`fas fa-${clicked ? "times" : "bars"}`}
-            onClick={toggleMenu}
-          ></i>
-          <div id="shadow-overlay" onClick={toggleMenu}></div>
         </div>
       </nav>
     </>
