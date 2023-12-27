@@ -22,6 +22,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  border: 20px solid #e5e5e5;
 }
 
 #author-details {
@@ -49,6 +50,10 @@
 @media screen and (max-width: 950px) {
   #profile-wrapper {
     display: block;
+  }
+
+  #profile-wrapper img {
+    border: 10px solid #e5e5e5;
   }
 
   #image-container {
