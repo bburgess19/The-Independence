@@ -19,9 +19,11 @@ export default function AuthorBlurb({ authorName }) {
   return (
     <>
       <figure id="profile-wrapper">
-        <img src={author.profile_img} alt={authorName} />
+        <div id="image-container">
+          <img src={author.profile_img} alt={authorName} />
+        </div>
         <figcaption id="author-details">
-          <h3>{authorName}</h3>
+          <h2>{authorName}</h2>
           <p>{author.blurb}</p>
         </figcaption>
       </figure>
