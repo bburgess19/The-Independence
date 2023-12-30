@@ -1,7 +1,7 @@
 import "../../../assets/ArticleList.css";
 import ArticleCard from "./ArticleCard";
 import { db } from "../../../config/firebase";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { getDocs, collection } from "firebase/firestore";
 
 function ArticleList(props) {
@@ -9,43 +9,45 @@ function ArticleList(props) {
   const [articles, setArticles] = useState([]);
   const bottomObserverRef = useRef(null);
 
+  const filteredArticles = useMemo(() => {
+    let filteredData = articles.filter((article) => {
+      return props.genre == null || article.genre === props.genre.id;
+    });
+
+    return filteredData
+      .sort((a, b) => b.upload_date - a.upload_date)
+      .slice(0, 6);
+  }, [articles, props.genre]);
+
   useEffect(() => {
     const getArticles = async () => {
       try {
         // Get the article documents
         const data = await getDocs(collection(db, "articles"));
-        let filteredData = data.docs.map((doc) => ({
+        let articleData = data.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
         }));
 
-        if (props.genre != null) {
-          filteredData = filteredData.filter(
-            (article) => article.genre === props.genre,
-          );
-        } else {
-          console.log("Displaying articles for home page!");
-        }
-
-        setArticles(
-          filteredData
-            .sort((a, b) => new Date(a.upload_date) - new Date(b.upload_date))
-            .slice(0, 6),
-        );
+        setArticles(articleData);
       } catch (err) {
         console.error(err);
       }
     };
 
     getArticles();
-  }, [props.genre]);
+  }, []);
+
+  if (visibleArticles.length !== 0) {
+    visibleArticles.forEach((article) => console.log(article.title));
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const nextThreeArticles = articles
+            const nextThreeArticles = filteredArticles
               .filter((article) => !visibleArticles.includes(article))
               .slice(0, 3);
             setvisibleArticles((prevArticles) => [
@@ -61,7 +63,7 @@ function ArticleList(props) {
     const bottomRef = bottomObserverRef.current;
     if (bottomRef) {
       // Only add the observer if there are more articles to show
-      if (articles.length !== visibleArticles.length) {
+      if (filteredArticles.length !== visibleArticles.length) {
         observer.observe(bottomRef);
       }
     }
@@ -71,7 +73,7 @@ function ArticleList(props) {
         observer.unobserve(bottomRef);
       }
     };
-  }, [articles, visibleArticles]);
+  }, [filteredArticles, visibleArticles]);
 
   return (
     <>
