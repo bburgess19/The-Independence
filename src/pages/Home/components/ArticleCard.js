@@ -1,23 +1,46 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../../assets/ArticleCard.css";
 import { Link } from "react-router-dom";
+import { db } from "../../../config/firebase.js";
+import { doc, getDoc } from "firebase/firestore";
 
 export default function ArticleCard(props) {
   const [isHovering, setIsHovering] = useState(false);
-  const articleGenres = {
-    Art: "art",
-    "Black Body & Diaspora": "diaspora",
-    "Politics & Economics": "politics",
-    "Science & Technology": "science",
-    Sports: "sports",
-  };
+  const [genre, setGenre] = useState(props.genre);
+
+  useEffect(() => {
+    const getGenres = async () => {
+      try {
+        // Get the genres documents
+        const docRef = doc(db, "genre", props.article.genre);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          let genreData = { ...docSnap.data(), id: docSnap.id };
+
+          setGenre(genreData);
+        } else {
+          console.log("No such document!");
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    if (genre === undefined) {
+      getGenres();
+    }
+  }, [genre, props.article.genre]);
+
+  if (genre === undefined) {
+    return <></>;
+  }
 
   return (
     <>
       <Link
         className="article-card-link"
-        to={`/articles/${props.article.slug}`}
+        to={`/articles/${genre.slug}/${props.article.slug}`}
         article={props.article}
       >
         <div
@@ -27,9 +50,7 @@ export default function ArticleCard(props) {
         >
           <div
             className={`${
-              isHovering
-                ? `hover-highlight ${articleGenres[props.article.genre]}`
-                : ""
+              isHovering ? `hover-highlight ${genre.class_name}` : ""
             } article-card-image`}
           >
             <img
@@ -38,21 +59,13 @@ export default function ArticleCard(props) {
               className={isHovering ? "hover-highlight" : ""}
             />
           </div>
-          <p
-            className={`${
-              isHovering ? articleGenres[props.article.genre] : ""
-            } article-banner`}
-          >
+          <p className={`${isHovering ? genre.class_name : ""} article-banner`}>
             {" "}
-            {props.article.type} / {props.article.genre}
+            {props.article.type} / {genre.name}
           </p>
           <h3 className={"article-title"}>{props.article.title}</h3>
           <p>{props.article.subtitle}</p>
-          <p
-            className={`${
-              isHovering ? articleGenres[props.article.genre] : ""
-            } author`}
-          >
+          <p className={`${isHovering ? genre.class_name : ""} author`}>
             {props.article.author}
           </p>
         </div>

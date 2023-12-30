@@ -80,7 +80,11 @@ function ArticleList(props) {
       <div id="article-gallery">
         <section id="articles-wrapper">
           {visibleArticles.map((article, _) => (
-            <ArticleCard key={article.id} article={article} />
+            <ArticleCard
+              key={article.id}
+              genre={props.genre}
+              article={article}
+            />
           ))}
           <div ref={bottomObserverRef} style={{ height: "10px" }} />
         </section>
