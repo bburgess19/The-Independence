@@ -1,8 +1,35 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../assets/ExpandedMenu.css";
+import { db } from "../../config/firebase.js";
+import { getDocs, collection } from "firebase/firestore";
+import { useState, useEffect } from "react";
 
 export default function ExpandedMenu({ isOpen }) {
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    const getGenres = async () => {
+      try {
+        // Get the genres documents
+        const data = await getDocs(collection(db, "genre"));
+        let genreData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        setGenres(genreData);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getGenres();
+  }, []);
+
+  if (genres.length === 0) {
+    return <></>;
+  }
+
   return (
     <>
       <nav id="expanded-nav" className={isOpen ? "active" : "inactive"}>
@@ -11,40 +38,19 @@ export default function ExpandedMenu({ isOpen }) {
             Close
           </p>
           <ul id="categories">
-            <li>
-              <Link className="article-link art" to="/Art">
-                <h3 className="category">Art</h3>
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="article-link diaspora"
-                to="/black-body-and-diaspora"
-              >
-                <h3 className="category">Black Body & Diaspora</h3>
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="article-link politics"
-                to="/politics-and-economics"
-              >
-                <h3 className="category">Politics & Economics</h3>
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="article-link science"
-                to="/science-and-technology"
-              >
-                <h3 className="category">Science & Technology</h3>
-              </Link>
-            </li>
-            <li>
-              <Link className="article-link sports" to="/sports">
-                <h3 className="category">Sports</h3>
-              </Link>
-            </li>
+            {genres.map((genre) => {
+              return (
+                <li key={genre.slug}>
+                  <Link
+                    className={`article-link ${genre.class_name}`}
+                    to={`/articles/${genre.slug}`}
+                    state={{ genre: genre }}
+                  >
+                    <h3 className="category">{genre.name}</h3>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <div id="expand-menu-mobile">
             <ul>

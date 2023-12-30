@@ -17,22 +17,9 @@ export default function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/about" element={<p>About page!</p>} />
-            <Route path="/art" element={<Articles genre="Art" />} />
-            <Route
-              path="/black-body-and-diaspora"
-              element={<Articles genre="Black Body & Diaspora" />}
-            />
-            <Route
-              path="/politics-and-economics"
-              element={<Articles genre="Politics & Economics" />}
-            />
-            <Route
-              path="/science-and-technology"
-              element={<Articles genre="Science & Technology" />}
-            />
-            <Route path="/sports" element={<Articles genre="Sports" />} />
+            <Route path="/articles/:genreSlug" element={<Articles />} />
             <Route path="/articles" element={<p>Articles page!</p>} />
-            <Route path="/articles/:slug" element={<Article />} />
+            <Route path="/articles/:genreSlug/:slug" element={<Article />} />
           </Route>
         </Routes>
       </BrowserRouter>

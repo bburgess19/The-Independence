@@ -12,6 +12,7 @@ function Home() {
         </div>
       </div>
       <div className="page-wrapper">
+        <h2>Recent Stories</h2>
         <ArticleList />
       </div>
     </>
