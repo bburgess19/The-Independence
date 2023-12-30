@@ -76,7 +76,6 @@ function ArticleList(props) {
   return (
     <>
       <div id="article-gallery">
-        <h2>Recent Stories</h2>
         <section id="articles-wrapper">
           {visibleArticles.map((article, _) => (
             <ArticleCard key={article.id} article={article} />
