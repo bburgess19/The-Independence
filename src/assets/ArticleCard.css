@@ -7,6 +7,7 @@
   background-color: #e8e8e8;
   padding: 10px;
   border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .article-card-link {
@@ -68,23 +69,23 @@
 }
 
 .article-card-image.hover-highlight.art::after {
-  background-color: rgba(var(--art-color), 0.4);
+  background-color: rgba(var(--art), 0.4);
 }
 
 .article-card-image.hover-highlight.diaspora::after {
-  background-color: rgba(var(--diaspora-color), 0.4);
+  background-color: rgba(var(--diaspora), 0.4);
 }
 
 .article-card-image.hover-highlight.politics::after {
-  background-color: rgba(var(--politics-color), 0.4);
+  background-color: rgba(var(--politics), 0.4);
 }
 
 .article-card-image.hover-highlight.science::after {
-  background-color: rgba(var(--science-color), 0.4);
+  background-color: rgba(var(--science), 0.4);
 }
 
 .article-card-image.hover-highlight.sports::after {
-  background-color: rgba(var(--sports-color), 0.4);
+  background-color: rgba(var(--sports), 0.4);
 }
 
 .article-title {

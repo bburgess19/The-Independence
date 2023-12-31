@@ -1,3 +1,25 @@
-#article-header {
-    text-align: center;
+.top-header-wrapper {
+  padding-top: var(--nav-bar-height);
+  background-color: rgb(39, 39, 39);
+}
+
+#article-list-header {
+  text-align: center;
+  padding-top: 20px;
+}
+
+#genre-description {
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  max-width: 800px;
+}
+
+#genre-description-wrapper {
+  text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+  #genre-description {
+    font-size: 1rem;
+  }
 }

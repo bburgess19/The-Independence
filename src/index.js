@@ -5,7 +5,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/Home/components/index.js";
 import Layout from "./pages/Layout/Layout";
-import Articles from "./pages/Genre/index.js";
+import Articles from "./pages/Genre/components/index.js";
 import "./App.css";
 import Article from "./pages/Article/components/index.js";
 
@@ -18,7 +18,7 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="/about" element={<p>About page!</p>} />
             <Route path="/articles/:genreSlug" element={<Articles />} />
-            <Route path="/articles" element={<p>Articles page!</p>} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/articles/:genreSlug/:slug" element={<Article />} />
           </Route>
         </Routes>

@@ -35,7 +35,7 @@ export default function Article() {
         const snapshot = await getDocs(q);
         setArticle({ data: snapshot.docs[0].data(), id: snapshot.docs[0].id });
       } catch (e) {
-        console.log(e);
+        console.error(e);
         return <h1>Page failed to load</h1>;
       }
     };

@@ -1,0 +1,6 @@
+.brackets-wrapper {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 40px;
+  background-clip: padding-box;
+}
