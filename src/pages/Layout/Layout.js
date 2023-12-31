@@ -8,7 +8,9 @@ export default function Layout() {
   const location = useLocation();
 
   // Check if the path contains 'article'
-  const isArticlePage = location.pathname.includes("article");
+  const isArticlePage =
+    location.pathname.includes("article") &&
+    location.pathname.split("/").length === 4;
 
   return (
     <>
