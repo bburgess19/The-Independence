@@ -5,7 +5,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/Home/components/index.js";
 import Layout from "./pages/Layout/Layout";
-import Articles from "./pages/Genre/index.js";
+import Articles from "./pages/Genre/components/index.js";
 import "./App.css";
 import Article from "./pages/Article/components/index.js";
 
