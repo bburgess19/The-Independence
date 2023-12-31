@@ -1,30 +1,91 @@
 :root {
+  --art: 59, 89, 193;
+  --art-medium: 186, 197, 234;
+  --art-light: 215, 220, 238;
+  --diaspora: 2, 48, 71;
+  --diaspora-medium: 193, 211, 228;
+  --diaspora-light: 218, 229, 241;
+  --politics: 235, 80, 7;
+  --politics-medium: 232, 202, 188;
+  --politics-light: 242, 229, 223;
+  --science: 121, 52, 59;
+  --science-medium: 219, 177, 181;
+  --science-light: 239, 217, 219;
+  --sports: 45, 106, 79;
+  --sports-medium: 194, 229, 214;
+  --sports-light: 232, 252, 242;
+  --subheading-bg-color: rgba(140, 140, 140, 1);
+  --nav-bar-height: min(25vw, 110px);
+  --nav-bar-height-thin: 80px;
+  --heading-1-size: 30px;
+  --heading-1-size-value: 5.3;
+  --heading-2-size: 26px;
+  --heading-2-size-value: 3.4;
+  --heading-3-size: 22px;
+  --heading-3-size-value: 2.5;
+  --heading-4-size: 18rem;
+  --heading-4-size-value: 2;
   --independence-max-width: 1440px;
-  --art-color: 142, 202, 230;
-  --diaspora-color: 33, 158, 188;
-  --politics-color: 2, 48, 71;
-  --science-color: 45, 106, 79;
-  --sports-color: 27, 67, 50;
 }
 
 .art {
-  color: rgb(var(--art-color));
+  color: rgb(var(--art));
+}
+
+.art-med-bg {
+  background-color: rgb(var(--art-medium));
+}
+
+.art-light-bg {
+  background-color: rgb(var(--art-light));
 }
 
 .diaspora {
-  color: rgb(var(--diaspora-color));
+  color: rgb(var(--diaspora));
+}
+
+.diaspora-med-bg {
+  background-color: rgb(var(--diaspora-medium));
+}
+
+.diaspora-light-bg {
+  background-color: rgb(var(--diaspora-light));
 }
 
 .politics {
-  color: rgb(var(--politics-color));
+  color: rgb(var(--politics));
+}
+
+.politics-med-bg {
+  background-color: rgb(var(--politics-medium));
+}
+
+.politics-light-bg {
+  background-color: rgb(var(--politics-light));
 }
 
 .science {
-  color: rgb(var(--science-color));
+  color: rgb(var(--science));
+}
+
+.science-med-bg {
+  background-color: rgb(var(--science-medium));
+}
+
+.science-light-bg {
+  background-color: rgb(var(--science-light));
 }
 
 .sports {
-  color: rgb(var(--sports-color));
+  color: rgb(var(--sports));
+}
+
+.sports-med-bg {
+  background-color: rgb(var(--sports-medium));
+}
+
+.sports-light-bg {
+  background-color: rgb(var(--sports-light));
 }
 
 .App {
