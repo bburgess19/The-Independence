@@ -23,7 +23,10 @@ export default function Articles() {
         ...doc.data(),
       }));
 
-      setGenre(genreData);
+      // Only load the genre if the URL requests it
+      if (params.genreSlug !== undefined) {
+        setGenre(genreData);
+      }
     } catch (err) {
       console.error(err);
     }
@@ -41,32 +44,51 @@ export default function Articles() {
     }
   }, [initialGenre, params.genreSlug, fetchGenreData]);
 
-  if (genre === null) {
-    return <></>;
-  }
-
-  return (
-    <div className={`${genre.class_name}-light-bg`}>
-      <div className="top-header-wrapper">
-        <h2
-          id="article-list-header"
-          className={`${genre.class_name} ${genre.class_name}-med-bg`}
-        >
-          {genre.name}
-        </h2>
-      </div>
-      <div
-        id="genre-description-wrapper"
-        className={`${genre.class_name}-med-bg`}
-      >
-        <div className="page-wrapper">
-          <Brackets genre={genre}>
-            <p id="genre-description">{genre.description}</p>
-          </Brackets>
+  if (params.genreSlug === undefined) {
+    return (
+      <div className="article-list-wrapper">
+        <div className="top-header-wrapper">
+          <h2 style={{ color: "white" }} id="article-list-header">
+            Articles
+          </h2>
         </div>
-      </div>
+        <div id="genre-description-wrapper">
+          <div className="page-wrapper">
+            <Brackets>
+              <p id="genre-description">
+                Experience all of the content we have to offer.
+              </p>
+            </Brackets>
+          </div>
+        </div>
 
-      <ArticleList key={genre.slug} genre={genre} />
-    </div>
-  );
+        <ArticleList />
+      </div>
+    );
+  } else if (genre !== null) {
+    return (
+      <div className="article-list-wrapper">
+        <div className="top-header-wrapper">
+          <h2
+            id="article-list-header"
+            className={`${genre.class_name} ${genre.class_name}-med-bg`}
+          >
+            {genre.name}
+          </h2>
+        </div>
+        <div
+          id="genre-description-wrapper"
+          className={`${genre.class_name}-med-bg`}
+        >
+          <div className="page-wrapper">
+            <Brackets genre={genre}>
+              <p id="genre-description">{genre.description}</p>
+            </Brackets>
+          </div>
+        </div>
+
+        <ArticleList key={genre.slug} genre={genre} />
+      </div>
+    );
+  }
 }

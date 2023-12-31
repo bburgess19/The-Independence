@@ -55,7 +55,7 @@ export default function Brackets({ children, genre }) {
       );
       context.fillStyle = `rgb(${color})`;
     } else {
-      context.fillStyle = "#fff";
+      context.fillStyle = "#000";
     }
     context.fillRect(2, 2, 2, 35); // Outer top left vertical
     context.fillRect(10, 10, 4, 45); // Inner top left vertical
