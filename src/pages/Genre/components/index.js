@@ -13,7 +13,6 @@ export default function Articles() {
   const [genre, setGenre] = useState(null);
 
   const fetchGenreData = useCallback(async () => {
-    console.log("Fetching genre data");
     try {
       const queryConstraints = [];
       queryConstraints.push(where("slug", "==", params.genreSlug));

@@ -48,8 +48,6 @@ export default function Brackets({ children, genre }) {
     // Make the canvas transparent
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    // log the width and height
-    console.log(canvas.width, canvas.height);
     // Set line color
     if (genre) {
       let color = getComputedStyle(document.documentElement).getPropertyValue(

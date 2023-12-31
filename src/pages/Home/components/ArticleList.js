@@ -38,10 +38,6 @@ function ArticleList(props) {
     getArticles();
   }, []);
 
-  if (visibleArticles.length !== 0) {
-    visibleArticles.forEach((article) => console.log(article.title));
-  }
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

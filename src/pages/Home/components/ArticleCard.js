@@ -20,7 +20,7 @@ export default function ArticleCard(props) {
 
           setGenre(genreData);
         } else {
-          console.log("No such document!");
+          console.error("No such document!");
         }
       } catch (err) {
         console.error(err);
