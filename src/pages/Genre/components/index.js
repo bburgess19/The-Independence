@@ -46,7 +46,7 @@ export default function Articles() {
 
   if (params.genreSlug === undefined) {
     return (
-      <div className="article-list-wrapper">
+      <div>
         <div className="top-header-wrapper">
           <h2 style={{ color: "white" }} id="article-list-header">
             Articles
@@ -67,7 +67,7 @@ export default function Articles() {
     );
   } else if (genre !== null) {
     return (
-      <div className="article-list-wrapper">
+      <div className={`${genre.class_name}-light-bg`}>
         <div className="top-header-wrapper">
           <h2
             id="article-list-header"
