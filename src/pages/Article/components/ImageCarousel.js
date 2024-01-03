@@ -17,7 +17,7 @@ export default function ImageCarousel({ children }) {
 
   // Loop through the children and if the child starts with #cap# then
   // add it to the previous {img} as {caption}
-  const imageAndCaption = children.reduce((acc, child, index, array) => {
+  const imageAndCaption = children.reduce((acc, child) => {
     if (child.startsWith("#cap#")) {
       acc[acc.length - 1] = {
         ...acc[acc.length - 1],
