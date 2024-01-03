@@ -1,0 +1,84 @@
+#section-editor-grid {
+  --row-height-scaling-factor: 0.0215;
+  display: grid;
+  align-content: space-between;
+  grid-template-rows: repeat(
+    35,
+    minmax(
+      calc(var(--independence-max-width) * var(--row-height-scaling-factor)),
+      auto
+    )
+  );
+  grid-template-columns:
+    minmax(5vw, 1fr) repeat(24, minmax(0, var(--cell-max-width)))
+    minmax(5vw, 1fr);
+  grid-gap: 10px;
+}
+
+#editors-header {
+  grid-area: 1 / 11 / 7 / 17;
+  font-size: calc(3rem + 1vw);
+  text-align: center;
+}
+
+.editor-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 550px;
+}
+
+.editor-img-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.editor-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.editor-details {
+  position: absolute;
+  width: 90%;
+  bottom: 0px;
+  z-index: 1;
+  margin: 0 auto;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgb(240, 240, 240);
+  border-radius: 20px;
+}
+
+.editor-details h3 {
+  text-align: center;
+  font-weight: 400;
+}
+
+#editor-blurb {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  #section-editor-grid {
+    /* Increase the number of rows to accomodate the extra height */
+    grid-template-rows: repeat(
+      43,
+      minmax(
+        calc(var(--independence-max-width) * var(--row-height-scaling-factor)),
+        auto
+      )
+    );
+  }
+
+  #editors-header {
+    grid-area: 1 / 2 / 4 / 25;
+  }
+}
