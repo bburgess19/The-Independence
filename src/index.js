@@ -8,6 +8,7 @@ import Layout from "./pages/Layout/Layout";
 import Articles from "./pages/Genre/components/index.js";
 import "./App.css";
 import Article from "./pages/Article/components/index.js";
+import About from "./pages/About/components/index.js";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/about" element={<p>About page!</p>} />
+            <Route path="/about" element={<About />} />
             <Route path="/articles/:genreSlug" element={<Articles />} />
             <Route path="/articles" element={<Articles />} />
             <Route path="/articles/:genreSlug/:slug" element={<Article />} />

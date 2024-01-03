@@ -1,0 +1,38 @@
+#about-page-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  row-gap: 8vh;
+}
+
+#about-header-wrapper {
+  background-color: rgb(39, 39, 39);
+  padding: 5vh 0;
+}
+
+#about-header {
+  padding-top: var(--nav-bar-height);
+  color: white;
+  margin: 0 auto;
+}
+
+#about-independence {
+  margin-top: 3rem;
+  line-height: 1.8rem;
+  max-width: 800px;
+}
+
+#editors-in-chief {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 425px) {
+  #about-header h2 {
+    font-size: calc(1rem + 1.8vw);
+    text-align: center;
+  }
+}
