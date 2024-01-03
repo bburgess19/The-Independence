@@ -26,6 +26,9 @@
   --heading-4-size: 18rem;
   --heading-4-size-value: 2;
   --independence-max-width: 1440px;
+  --cell-max-width: calc(
+    (var(--independence-max-width, 1440px) - (11px * 23)) / 24
+  );
 }
 
 .art {
