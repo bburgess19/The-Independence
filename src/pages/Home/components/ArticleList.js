@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { getDocs, collection } from "firebase/firestore";
 
 function ArticleList(props) {
-  const [visibleArticles, setvisibleArticles] = useState([]);
+  const [visibleArticles, setVisibleArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const bottomObserverRef = useRef(null);
 
@@ -16,10 +16,11 @@ function ArticleList(props) {
 
     return filteredData
       .sort((a, b) => b.upload_date - a.upload_date)
-      .slice(0, 6);
+      .slice(0, props.limit ?? filteredData.length);
   }, [articles, props.genre]);
 
   useEffect(() => {
+    // Load the articles
     const getArticles = async () => {
       try {
         // Get the article documents
@@ -30,6 +31,7 @@ function ArticleList(props) {
         }));
 
         setArticles(articleData);
+        setVisibleArticles(articleData.slice(0, 6));
       } catch (err) {
         console.error(err);
       }
@@ -39,6 +41,7 @@ function ArticleList(props) {
   }, []);
 
   useEffect(() => {
+    // Display the next three articles
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -46,7 +49,7 @@ function ArticleList(props) {
             const nextThreeArticles = filteredArticles
               .filter((article) => !visibleArticles.includes(article))
               .slice(0, 3);
-            setvisibleArticles((prevArticles) => [
+            setVisibleArticles((prevArticles) => [
               ...prevArticles,
               ...nextThreeArticles,
             ]);
@@ -73,17 +76,21 @@ function ArticleList(props) {
 
   return (
     <>
-      <div id="article-gallery">
-        <section id="articles-wrapper">
-          {visibleArticles.map((article, _) => (
-            <ArticleCard
-              key={article.id}
-              genre={props.genre}
-              article={article}
-            />
-          ))}
+      <div>
+        <div id="article-gallery">
+          <section id="articles-wrapper">
+            {visibleArticles.map((article, _) => (
+              <ArticleCard
+                key={article.id}
+                genre={props.genre}
+                article={article}
+              />
+            ))}
+          </section>
+        </div>
+        {visibleArticles.length !== filteredArticles.length && (
           <div ref={bottomObserverRef} style={{ height: "10px" }} />
-        </section>
+        )}
       </div>
     </>
   );
