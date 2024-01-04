@@ -13,7 +13,7 @@ function Home() {
       </div>
       <div className="page-wrapper">
         <h2>Recent Stories</h2>
-        <ArticleList />
+        <ArticleList limit={6} />
       </div>
     </>
   );
