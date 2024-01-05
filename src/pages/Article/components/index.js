@@ -42,7 +42,6 @@ export default function Article() {
   const params = useParams();
 
   const fetchGenre = async (article) => {
-    console.log(article);
     try {
       const docRef = doc(db, "genre", article.genre);
       const snapshot = (await getDoc(docRef)).data();
@@ -103,7 +102,7 @@ export default function Article() {
     }
   }, [article]);
 
-  if (article.data === null) return <h1>Loading...</h1>;
+  if (article.data === null) return <></>;
   return (
     <>
       <TitleImage article={article.data} />
