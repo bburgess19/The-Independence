@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { db } from "../../../config/firebase.js";
 import { doc, getDoc } from "firebase/firestore";
+import Markdown from "react-markdown";
 import "../assets/AuthorBlurb.css";
 
 export default function AuthorBlurb({ authorName }) {
@@ -24,7 +25,7 @@ export default function AuthorBlurb({ authorName }) {
         </div>
         <figcaption id="author-details">
           <h2>{authorName}</h2>
-          <p>{author.blurb}</p>
+          <Markdown>{author.blurb}</Markdown>
         </figcaption>
       </figure>
     </>
