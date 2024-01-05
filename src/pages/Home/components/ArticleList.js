@@ -14,6 +14,7 @@ function ArticleList(props) {
       return props.genre == null || article.genre === props.genre.id;
     });
 
+    console.log(props.genre);
     return filteredData
       .sort((a, b) => b.upload_date - a.upload_date)
       .slice(0, props.limit ?? filteredData.length);
@@ -31,7 +32,6 @@ function ArticleList(props) {
         }));
 
         setArticles(articleData);
-        setVisibleArticles(articleData.slice(0, 6));
       } catch (err) {
         console.error(err);
       }
@@ -56,7 +56,7 @@ function ArticleList(props) {
           }
         });
       },
-      { threshold: 0.5 },
+      { threshold: 0.1 },
     );
 
     const bottomRef = bottomObserverRef.current;
@@ -77,9 +77,12 @@ function ArticleList(props) {
   return (
     <>
       <div>
+        {visibleArticles.length === 0 && (
+          <div ref={bottomObserverRef} style={{ height: "300px" }} />
+        )}
         <div id="article-gallery">
           <section id="articles-wrapper">
-            {visibleArticles.map((article, _) => (
+            {visibleArticles.map((article, i) => (
               <ArticleCard
                 key={article.id}
                 genre={props.genre}
@@ -88,9 +91,10 @@ function ArticleList(props) {
             ))}
           </section>
         </div>
-        {visibleArticles.length !== filteredArticles.length && (
-          <div ref={bottomObserverRef} style={{ height: "10px" }} />
-        )}
+        {visibleArticles.length !== 0 &&
+          visibleArticles.length !== filteredArticles.length && (
+            <div ref={bottomObserverRef} style={{ height: "10px" }} />
+          )}
       </div>
     </>
   );

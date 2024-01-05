@@ -47,28 +47,27 @@ export default function Gallery() {
     );
   };
 
-  if (articleData === null) {
-    return <h1>Loading...</h1>;
-  }
   return (
     <>
       <div id="gallery-wrapper">
-        <Swiper
-          spaceBetween={10}
-          centeredSlides={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          loop={true}
-          navigation={true}
-          effect="fade"
-          fadeEffect={{ crossFade: true }}
-          modules={[Autoplay, Navigation, Pagination, EffectFade]}
-          className="gallery-carousel"
-        >
-          {articleData.map((article) => renderImageSlide(article))}
-        </Swiper>
+        {articleData !== null && (
+          <Swiper
+            spaceBetween={10}
+            centeredSlides={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            navigation={true}
+            effect="fade"
+            fadeEffect={{ crossFade: true }}
+            modules={[Autoplay, Navigation, Pagination, EffectFade]}
+            className="gallery-carousel"
+          >
+            {articleData.map((article) => renderImageSlide(article))}
+          </Swiper>
+        )}
       </div>
     </>
   );
