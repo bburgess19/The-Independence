@@ -35,12 +35,18 @@ export default function Gallery() {
             alt={article.alt}
           />
           <div className="image-text" style={{ gridArea: textPosition }}>
-            <Link to={`/articles/${article.slug}`} className="image-header">
+            <Link
+              to={`/articles/${article.genre_slug}/${article.slug}`}
+              className="image-header"
+            >
               <h1 className="gallery-article-title">{article.title}</h1>
             </Link>
           </div>
         </div>
-        <Link to={`/articles/${article.slug}`} className="gallery-link">
+        <Link
+          to={`/articles/${article.genre_slug}/${article.slug}`}
+          className="gallery-link"
+        >
           <span className="gradient-overlay"> </span>
         </Link>
       </SwiperSlide>

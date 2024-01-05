@@ -3,6 +3,7 @@
     "image_path": "images/articles/the_nigerien_coup.jpg",
     "title": "The Nigerien Coup and its Global Implications",
     "slug": "nigerien-coup",
+    "genre_slug": "politics-and-economics",
     "text_position": "main-tl",
     "alt": "Soldier holding a gun"
   },
@@ -10,6 +11,7 @@
     "image_path": "/images/articles/mycology_a_hidden_kingdom_in_africa.jpg",
     "title": "Mycology: A Hidden Kingdom in Africa",
     "slug": "mycology-a-hidden-kingdom-in-africa",
+    "genre_slug": "science-and-technology",
     "text_position": "main-br",
     "alt": "Hands holding mushrooms"
   },
@@ -17,6 +19,7 @@
     "image_path": "/images/articles/the_tale_of_the_two_hour_marathon.png",
     "title": "The Tale of the 2 Hour Marathon",
     "slug": "the-tale-of-the-two-hour-marathon",
+    "genre_slug": "sports",
     "text_position": "main-tc",
     "alt": "Eliud Kipchoge running towards finish line"
   }
