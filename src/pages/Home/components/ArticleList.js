@@ -14,7 +14,6 @@ function ArticleList(props) {
       return props.genre == null || article.genre === props.genre.id;
     });
 
-    console.log(props.genre);
     return filteredData
       .sort((a, b) => b.upload_date - a.upload_date)
       .slice(0, props.limit ?? filteredData.length);
