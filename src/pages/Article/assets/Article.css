@@ -11,3 +11,7 @@
 #article-body a:hover {
   color: #404040;
 }
+
+.article-blockquote {
+  text-align: center;
+}

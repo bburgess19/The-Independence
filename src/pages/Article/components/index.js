@@ -2,12 +2,20 @@ import TitleImage from "./TitleImage";
 import AuthorBlurb from "./AuthorBlurb";
 import { useEffect, useState } from "react";
 import { db } from "../../../config/firebase.js";
-import { collection, where, query, getDocs } from "firebase/firestore";
+import {
+  collection,
+  where,
+  query,
+  doc,
+  getDocs,
+  getDoc,
+} from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import ImageCarousel from "./ImageCarousel";
 import "../assets/Article.css";
+import Brackets from "../../Genre/components/Brackets";
 
 const DivRenderer = (props) => {
   if (props.className === "image-carousel") {
@@ -17,14 +25,32 @@ const DivRenderer = (props) => {
   }
 };
 
-const components = {
-  div: DivRenderer,
+const BlockquoteRenderer = ({ children, genre }) => {
+  return (
+    <blockquote className={`article-blockquote ${genre.class_name ?? ""}`}>
+      <Brackets genre={genre}>
+        <p>{children}</p>
+      </Brackets>
+    </blockquote>
+  );
 };
 
 export default function Article() {
   const [article, setArticle] = useState({ data: null, id: null });
   const [body, setBody] = useState(null);
+  const [components, setComponents] = useState(null);
   const params = useParams();
+
+  const fetchGenre = async (article) => {
+    console.log(article);
+    try {
+      const docRef = doc(db, "genre", article.genre);
+      const snapshot = (await getDoc(docRef)).data();
+      return snapshot;
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   useEffect(() => {
     const getArticle = async () => {
@@ -34,6 +60,17 @@ export default function Article() {
         const q = query(collection(db, "articles"), ...queryConstraints);
         const snapshot = await getDocs(q);
         setArticle({ data: snapshot.docs[0].data(), id: snapshot.docs[0].id });
+
+        // Load the genre
+        const genre = await fetchGenre(snapshot.docs[0].data());
+
+        // Load the components for custom markdown rendering
+        setComponents({
+          div: ({ ...props }) => <DivRenderer {...props} />,
+          blockquote: ({ ...props }) => (
+            <BlockquoteRenderer {...props} genre={genre} />
+          ),
+        });
       } catch (e) {
         console.error(e);
         return <h1>Page failed to load</h1>;
