@@ -15,8 +15,7 @@
   --sports-medium: 194, 229, 214;
   --sports-light: 232, 252, 242;
   --subheading-bg-color: rgba(140, 140, 140, 1);
-  --nav-bar-height: min(25vw, 110px);
-  --nav-bar-height-thin: 80px;
+  --nav-bar-height: 80px;
   --heading-1-size: 30px;
   --heading-1-size-value: 5.3;
   --heading-2-size: 26px;
@@ -127,6 +126,36 @@
   margin: 0 auto;
   padding: 30px 24px;
 }
+
+/*** NAVBAR STYLES ***/
+.independence-header {
+  justify-self: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+  font-family: Times, Georgia, serif;
+  color: white;
+  text-decoration: none;
+}
+
+.independence-header h4 {
+  font-weight: 200;
+}
+
+@media screen and (max-width: 767px) {
+  p .independence-header {
+    grid-column: 2 / 4;
+    justify-self: start;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .independence-header * {
+    font-size: 1.5rem;
+    padding-left: 20px;
+  }
+}
+
+/*** END NAVBAR STYLES ***/
 
 @keyframes App-logo-spin {
   from {

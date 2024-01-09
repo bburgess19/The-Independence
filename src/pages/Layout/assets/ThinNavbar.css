@@ -3,25 +3,12 @@
   display: grid;
   width: 100vw;
   height: 100vh;
-  height: var(--nav-bar-height-thin);
+  height: var(--nav-bar-height);
   top: 0;
   z-index: 5;
   grid-template-columns: repeat(3, 1fr);
   padding-top: 5px;
   color: white;
-}
-
-#independence-header {
-  justify-self: center;
-  font-size: 2.2rem;
-  font-weight: 400;
-  font-family: Times, Georgia, serif;
-  color: white;
-  text-decoration: none;
-}
-
-#independence-header h4 {
-  font-weight: 200;
 }
 
 #thin-navbar-wrapper #expand-menu {
@@ -50,20 +37,10 @@
   #thin-navbar {
     display: none;
   }
-
-  #independence-header {
-    grid-column: 2 / 4;
-    justify-self: start;
-  }
 }
 
 @media screen and (max-width: 425px) {
   #thin-navbar-wrapper {
     grid-template-columns: 0.5fr 1fr 1fr;
-  }
-
-  #independence-header * {
-    font-size: 1.5rem;
-    padding-left: 20px;
   }
 }
