@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ExpandedMenu from "../Auxiliary/ExpandedMenu";
 
 export default function Navbar() {
-  const [clicked, setClicked] = useState(false);
   const [isMenuExpanded, setExpandMenu] = useState(false);
   let ACTIVE = "active";
   let menuRef = useRef();
@@ -85,15 +84,9 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <div id="logo-container">
-          <Link to="/">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/The Independence Logo.png`}
-              alt="The Independence Logo"
-            />
-          </Link>
-        </div>
-
+        <Link className="independence-header" to="/">
+          <h4>The Independence</h4>
+        </Link>
         <div>
           <ul id="navbar">
             <li>
