@@ -100,7 +100,7 @@ export default function ThinNavbar() {
           </div>
         </div>
 
-        <Link id="independence-header" to="/">
+        <Link className="independence-header" to="/">
           <h4>The Independence</h4>
         </Link>
 

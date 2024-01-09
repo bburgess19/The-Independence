@@ -22,11 +22,6 @@
   justify-self: center;
 }
 
-#logo-container img {
-  width: 100%;
-  height: 100%;
-}
-
 #expand-menu {
   display: flex;
   column-gap: 10px;
