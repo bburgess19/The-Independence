@@ -105,7 +105,7 @@ export default function Navbar() {
         <Link id="independence-header" to="/">
           <h4>The Independence</h4>
         </Link>
-        <div>
+        {window.innerWidth >= 768 && (
           <ul id="navbar">
             <li>
               <Link className="underlinable" to="/">
@@ -125,7 +125,7 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
-        </div>
+        )}
       </nav>
     </>
   );

@@ -127,34 +127,6 @@
   padding: 30px 24px;
 }
 
-/*** NAVBAR STYLES ***/
-.independence-header {
-  justify-self: center;
-  font-size: 2.2rem;
-  font-weight: 400;
-  font-family: Times, Georgia, serif;
-  color: white;
-  text-decoration: none;
-}
-
-.independence-header h4 {
-  font-weight: 200;
-}
-
-@media screen and (max-width: 767px) {
-  p .independence-header {
-    grid-column: 2 / 4;
-    justify-self: start;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .independence-header * {
-    font-size: 1.5rem;
-    padding-left: 20px;
-  }
-}
-
 /*** END NAVBAR STYLES ***/
 
 @keyframes App-logo-spin {
