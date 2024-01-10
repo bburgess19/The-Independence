@@ -3,7 +3,7 @@
   display: grid;
   align-content: space-between;
   grid-template-rows: repeat(
-    35,
+    33,
     minmax(
       calc(var(--independence-max-width) * var(--row-height-scaling-factor)),
       auto

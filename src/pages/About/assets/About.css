@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
-  row-gap: 8vh;
+  row-gap: 5vh;
 }
 
 #about-header-wrapper {

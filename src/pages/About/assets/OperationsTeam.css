@@ -1,6 +1,14 @@
 #operations-team-top-header {
   margin-bottom: 3rem;
   text-align: center;
+  font-size: calc(3rem + 1vw);
+}
+
+#operations-team-wrapper {
+  width: 100vw;
+  max-width: var(--independence-max-width, 1440px);
+  padding: 0 24px;
+  margin: 0 auto;
 }
 
 #operations-team-wrapper .swiper {
