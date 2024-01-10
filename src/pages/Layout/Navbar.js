@@ -5,8 +5,26 @@ import ExpandedMenu from "../Auxiliary/ExpandedMenu";
 
 export default function Navbar() {
   const [isMenuExpanded, setExpandMenu] = useState(false);
+  const [menuText, setMenuText] = useState(
+    window.innerWidth < 768 ? "Menu" : "Sections",
+  );
+
   let ACTIVE = "active";
   let menuRef = useRef();
+
+  useEffect(() => {
+    const updateMenuText = () => {
+      console.log("innerWidth: ", window.innerWidth);
+      if (window.innerWidth < 768 && menuText !== "Menu") {
+        setMenuText("Menu");
+      } else if (window.innerWidth >= 768 && menuText !== "Sections") {
+        setMenuText("Sections");
+      }
+    };
+
+    window.addEventListener("resize", updateMenuText);
+    return () => window.removeEventListener("resize", updateMenuText);
+  }, [menuText, setMenuText]);
 
   useEffect(() => {
     let handler = (e) => {
@@ -57,7 +75,7 @@ export default function Navbar() {
       <nav id="main-nav">
         <div id="expand-menu">
           <span className="underlinable nav-link" onClick={() => toggleMenu()}>
-            Menu
+            {menuText}
           </span>
           <div ref={menuRef}>
             <ExpandedMenu isOpen={isMenuExpanded} />
