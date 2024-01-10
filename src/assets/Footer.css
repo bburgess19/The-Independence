@@ -1,14 +1,14 @@
 footer {
   display: grid;
-  grid-template-rows: repeat(3, minmax(40px, auto));
-  grid-template-columns: minmax(10vw, 1fr) repeat(
-      24,
-      minmax(0, var(--cell-max-width))
-    ) minmax(10vw, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns:
+    minmax(10vw, 1fr) repeat(24, minmax(0, var(--cell-max-width)))
+    minmax(10vw, 1fr);
   gap: 20px;
   background-color: rgb(39, 39, 39);
   min-height: 100px;
   justify-content: start;
+  padding-bottom: 10px;
 }
 
 .footer-div {
