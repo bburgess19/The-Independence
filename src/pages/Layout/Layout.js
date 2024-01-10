@@ -1,20 +1,13 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
-import ThinNavbar from "./ThinNavbar";
 import Footer from "./Footer";
 import "../../App.css";
 
 export default function Layout() {
-  const location = useLocation();
-
   // Check if the path contains 'article'
-  const isArticlePage =
-    location.pathname.includes("article") &&
-    location.pathname.split("/").length === 4;
-
   return (
     <>
-      {isArticlePage ? <ThinNavbar /> : <Navbar />}
+      <Navbar />
       <Outlet />
       <Footer />
     </>

@@ -68,7 +68,7 @@ ul {
   display: none;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 767px) {
   #expand-menu-mobile {
     display: inline-block;
     order: -1;
