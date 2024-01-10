@@ -84,7 +84,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <Link className="independence-header" to="/">
+        <Link id="independence-header" to="/">
           <h4>The Independence</h4>
         </Link>
         <div>
