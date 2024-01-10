@@ -14,7 +14,6 @@ export default function Navbar() {
 
   useEffect(() => {
     const updateMenuText = () => {
-      console.log("innerWidth: ", window.innerWidth);
       if (window.innerWidth < 768 && menuText !== "Menu") {
         setMenuText("Menu");
       } else if (window.innerWidth >= 768 && menuText !== "Sections") {

@@ -52,6 +52,19 @@ export default function Article() {
   };
 
   useEffect(() => {
+    const navbar = document.getElementById("main-nav");
+    const bgColor = window.getComputedStyle(navbar).backgroundColor;
+    const position = window.getComputedStyle(navbar).position;
+    navbar.style.backgroundColor = "transparent";
+    navbar.style.position = "absolute";
+
+    return () => {
+      navbar.style.backgroundColor = bgColor;
+      navbar.style.position = position;
+    };
+  }, []);
+
+  useEffect(() => {
     const getArticle = async () => {
       try {
         const queryConstraints = [];
