@@ -2,20 +2,15 @@ import TitleImage from "./TitleImage";
 import AuthorBlurb from "./AuthorBlurb";
 import { useEffect, useState } from "react";
 import { db } from "../../../config/firebase.js";
-import {
-  collection,
-  where,
-  query,
-  doc,
-  getDocs,
-  getDoc,
-} from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import ImageCarousel from "./ImageCarousel";
 import "../assets/Article.css";
 import Brackets from "../../Genre/components/Brackets";
+import StaffService from "../../../services/StaffService";
+import ArticleService from "../../../services/ArticleService";
 
 const DivRenderer = (props) => {
   if (props.className === "image-carousel") {
@@ -36,7 +31,8 @@ const BlockquoteRenderer = ({ children, genre }) => {
 };
 
 export default function Article() {
-  const [article, setArticle] = useState({ data: null, id: null });
+  const [author, setAuthor] = useState(null);
+  const [article, setArticle] = useState(null);
   const [body, setBody] = useState(null);
   const [components, setComponents] = useState(null);
   const params = useParams();
@@ -67,14 +63,23 @@ export default function Article() {
   useEffect(() => {
     const getArticle = async () => {
       try {
-        const queryConstraints = [];
-        queryConstraints.push(where("slug", "==", params.slug));
-        const q = query(collection(db, "articles"), ...queryConstraints);
-        const snapshot = await getDocs(q);
-        setArticle({ data: snapshot.docs[0].data(), id: snapshot.docs[0].id });
+        const article = await ArticleService.getArticleBySlug(params.slug);
+
+        if (article === null) {
+          throw new Error("Article doesn't exist");
+        }
+
+        setArticle(article);
+        const author = await StaffService.getAuthorByArticleId(article.id);
+
+        if (author === null) {
+          throw new Error("Author doesn't exist");
+        }
+
+        setAuthor(author);
 
         // Load the genre
-        const genre = await fetchGenre(snapshot.docs[0].data());
+        const genre = await fetchGenre(article);
 
         // Load the components for custom markdown rendering
         setComponents({
@@ -94,7 +99,7 @@ export default function Article() {
 
   // Fetch the body when the article is loaded
   useEffect(() => {
-    if (article.data !== null) {
+    if (article !== null) {
       // Send a http request to public/essays/id.md
 
       const fetchBody = async () => {
@@ -115,17 +120,18 @@ export default function Article() {
     }
   }, [article]);
 
-  if (article.data === null) return <></>;
+  if (article === null) return <></>;
+
   return (
     <>
-      <TitleImage article={article.data} />
+      <TitleImage article={article} />
       <div className="page-wrapper">
         <div id="article-body">
           <Markdown components={components} rehypePlugins={[rehypeRaw]}>
             {body}
           </Markdown>
         </div>
-        <AuthorBlurb authorName={article.data.author} />
+        {author && <AuthorBlurb author={author} />}
       </div>
     </>
   );

@@ -1,0 +1,10 @@
+#editor-page-wrapper {
+  margin-top: var(--nav-bar-height);
+  padding: 0;
+  flex-grow: 1;
+}
+
+#editor-all-content {
+  padding: 10px 0;
+  text-align: center;
+}

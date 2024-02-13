@@ -21,7 +21,7 @@ export default function OperationsTeam({ operationsTeam }) {
             <div className="operations-image-wrapper">
               <img
                 className="operations-image"
-                src={member.profile_img}
+                src={member.profileImg}
                 alt={member.name}
               />
             </div>

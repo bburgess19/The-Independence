@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { db } from "../../../config/firebase.js";
-import { getDocs, collection } from "firebase/firestore";
 import "../assets/About.css";
 import EditorInChief from "./EditorInChief.js";
 import SectionEditorGrid from "./SectionEditorGrid.js";
+import StaffService from "../../../services/StaffService.js";
 import OperationsTeam from "./OperationsTeam.js";
 
 export default function About() {
@@ -36,11 +35,7 @@ export default function About() {
   useEffect(() => {
     const getStaff = async () => {
       try {
-        const data = await getDocs(collection(db, "users"));
-        let staffData = data.docs.map((doc) => ({
-          ...doc.data(),
-          name: doc.id,
-        }));
+        const staffData = await StaffService.getAllStaff();
 
         filterMembers(staffData);
       } catch (err) {

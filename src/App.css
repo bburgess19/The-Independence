@@ -1,3 +1,9 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --art: 59, 89, 193;
   --art-medium: 186, 197, 234;

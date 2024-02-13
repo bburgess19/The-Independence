@@ -6,7 +6,7 @@ export default function TitleImage({ article }) {
     <>
       <div id="title-image-wrapper">
         <div>
-          <img id="title-image" src={article.title_image} alt={article.alt} />
+          <img id="title-image" src={article.titleImage} alt="" />
           <div id="title-image-main">
             <div id="title-text-wrapper">
               <h2 id="title-text">{article.title}</h2>

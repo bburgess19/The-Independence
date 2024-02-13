@@ -1,4 +1,5 @@
 import "../assets/SectionEditorGrid.css";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const placementDictWide = {
@@ -92,21 +93,22 @@ export default function SectionEditorGrid({ editors }) {
       <h1 id="editors-header">Section Editors</h1>
       {editors.map((editor, i) => {
         return (
-          <div
-            className="editor-card"
+          <Link
+            to={`/editors/${editor.slug}`}
+            key={editor.id}
             style={{
               ...getPlacementStyles(i),
             }}
-            key={editor.name}
+            className="editor-card"
           >
             <div className="editor-img-wrapper">
-              <img src={editor.profile_img} alt={editor.name} />
+              <img src={editor.profileImg} alt={editor.name} />
             </div>
             <div className="editor-details">
               <h3>{editor.name}</h3>
               <p id="editor-blurb">{editor.blurb}</p>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>
