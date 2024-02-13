@@ -80,6 +80,7 @@
   height: 100%;
   position: absolute;
   object-position: 50% 50%;
+  object-fit: cover;
 }
 
 #gallery-image-wrapper {

@@ -131,7 +131,7 @@ export default function Article() {
             {body}
           </Markdown>
         </div>
-        {author && <AuthorBlurb author={author} />}
+        {author && <AuthorBlurb isLinkable={true} author={author} />}
       </div>
     </>
   );

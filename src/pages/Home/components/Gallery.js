@@ -64,8 +64,6 @@ export default function Gallery() {
               delay: 5000,
               disableOnInteraction: false,
             }}
-            loop={true}
-            navigation={true}
             effect="fade"
             fadeEffect={{ crossFade: true }}
             modules={[Autoplay, Navigation, Pagination, EffectFade]}

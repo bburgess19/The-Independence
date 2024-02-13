@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { db } from "../../../config/firebase.js";
+import { getDocs, collection } from "firebase/firestore";
 import "../assets/About.css";
 import EditorInChief from "./EditorInChief.js";
 import SectionEditorGrid from "./SectionEditorGrid.js";
@@ -22,7 +24,10 @@ export default function About() {
         editors.push(member);
       } else if (member.position === "Editor in Chief") {
         chief.push(member);
-      } else if (member.position !== "professor") {
+      } else if (
+        member.position !== "professor" &&
+        member.position !== "writer"
+      ) {
         operations.push(member);
       }
     });
