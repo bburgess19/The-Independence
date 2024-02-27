@@ -1,11 +1,11 @@
 [
   {
-    "image_path": "images/articles/the_nigerien_coup.jpg",
-    "title": "The Nigerien Coup and its Global Implications",
-    "slug": "nigerien-coup",
-    "genre_slug": "politics-and-economics",
-    "text_position": "main-tl",
-    "alt": "Soldier holding a gun"
+    "image_path": "/images/articles/a_tale_of_the_past.jpg",
+    "title": "A tale of the past: Koma Waidi",
+    "slug": "a-tale-of-the-past",
+    "genre_slug": "art",
+    "text_position": "main-tr",
+    "alt": "Children smiling"
   },
   {
     "image_path": "/images/articles/mycology_a_hidden_kingdom_in_africa.jpg",
