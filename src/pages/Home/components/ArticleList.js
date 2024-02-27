@@ -14,7 +14,7 @@ export default function ArticleList({ genre, limit, author }) {
     });
 
     return filteredData
-      .sort((a, b) => b.upload_date - a.upload_date)
+      .sort((a, b) => a.upload_date - b.upload_date)
       .slice(0, limit ?? filteredData.length);
   }, [articles, genre, limit]);
 

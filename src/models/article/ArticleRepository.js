@@ -1,6 +1,6 @@
 import { db } from "../../config/firebase";
 import { Article } from "./ArticleModel";
-import { collection, where, getDocs, query } from "firebase/firestore";
+import { collection, where, getDocs, query, orderBy } from "firebase/firestore";
 
 export default class ArticleRepository {
   static async getArticleBySlug(slug) {
@@ -25,9 +25,11 @@ export default class ArticleRepository {
    * @throws {FirebaseError} If the query fails
    */
   static async getArticlesByGenre(genre) {
+    // Order by upload_date
     const q = query(
       collection(db, "articles"),
       where("genre", "==", genre),
+      orderBy("upload_date", "desc"),
     ).withConverter(articleConverter);
     const articleDocs = await getDocs(q);
     if (articleDocs.empty) {
@@ -41,6 +43,7 @@ export default class ArticleRepository {
     const q = query(
       collection(db, "articles"),
       where("author", "==", authorId),
+      orderBy("upload_date", "desc"),
     ).withConverter(articleConverter);
     const articleDocs = await getDocs(q);
     if (articleDocs.empty) {
@@ -51,7 +54,10 @@ export default class ArticleRepository {
   }
 
   static async getAllArticles() {
-    const q = query(collection(db, "articles")).withConverter(articleConverter);
+    const q = query(
+      collection(db, "articles"),
+      orderBy("upload_date", "desc"),
+    ).withConverter(articleConverter);
     const articleDocs = await getDocs(q);
     if (articleDocs.empty) {
       console.log("No matching documents.");
