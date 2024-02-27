@@ -51,6 +51,7 @@
   height: 100%; /* Maintain aspect ratio */
   display: block;
   transition: all 0.3s ease-in-out;
+  filter: grayscale(1);
 }
 
 .article-card-image:hover img {
