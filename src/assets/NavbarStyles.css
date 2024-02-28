@@ -8,7 +8,7 @@
   display: grid;
   grid-template: 1fr / 1fr auto 1fr;
   width: 100vw;
-  height: var(--nav-bar-height, 130px);
+  height: var(--nav-bar-height, 80px);
   top: 0;
   z-index: 5;
   align-items: center;
@@ -90,7 +90,7 @@
 
 @media screen and (max-width: 768px) {
   #main-nav {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     padding: 0 20px;
   }
 
@@ -146,6 +146,10 @@
 }
 
 @media screen and (max-width: 425px) {
+  #independence-header {
+    text-wrap: nowrap;
+  }
+
   #not-menu-expanded {
     display: none;
   }

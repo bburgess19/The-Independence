@@ -1,3 +1,7 @@
+#articles-body-wrapper {
+  flex-grow: 1;
+}
+
 .top-header-wrapper {
   padding-top: var(--nav-bar-height);
   background-color: rgb(39, 39, 39);
@@ -6,6 +10,10 @@
 #article-list-header {
   text-align: center;
   padding-top: 20px;
+}
+
+#genre-body-wrapper {
+  flex-grow: 1;
 }
 
 #genre-description {

@@ -1,34 +1,35 @@
 import "../../../assets/ArticleList.css";
 import ArticleCard from "./ArticleCard";
-import { db } from "../../../config/firebase";
 import { useState, useEffect, useRef, useMemo } from "react";
-import { getDocs, collection } from "firebase/firestore";
+import ArticleService from "../../../services/ArticleService";
 
-function ArticleList(props) {
+export default function ArticleList({ genre, limit, author }) {
   const [visibleArticles, setVisibleArticles] = useState([]);
   const [articles, setArticles] = useState([]);
   const bottomObserverRef = useRef(null);
 
   const filteredArticles = useMemo(() => {
     let filteredData = articles.filter((article) => {
-      return props.genre == null || article.genre === props.genre.id;
+      return genre == null || article.genre === genre.id;
     });
 
     return filteredData
-      .sort((a, b) => b.upload_date - a.upload_date)
-      .slice(0, props.limit ?? filteredData.length);
-  }, [articles, props.genre]);
+      .sort((a, b) => a.upload_date - b.upload_date)
+      .slice(0, limit ?? filteredData.length);
+  }, [articles, genre, limit]);
 
   useEffect(() => {
     // Load the articles
     const getArticles = async () => {
       try {
-        // Get the article documents
-        const data = await getDocs(collection(db, "articles"));
-        let articleData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
+        let articleData = [];
+        if (genre) {
+          articleData = await ArticleService.getArticlesByGenre(genre.id);
+        } else if (author) {
+          articleData = await ArticleService.getArticlesByAuthor(author);
+        } else {
+          articleData = await ArticleService.getAllArticles();
+        }
 
         setArticles(articleData);
       } catch (err) {
@@ -37,7 +38,8 @@ function ArticleList(props) {
     };
 
     getArticles();
-  }, []);
+    setVisibleArticles([]);
+  }, [author, genre]);
 
   useEffect(() => {
     // Display the next three articles
@@ -75,28 +77,14 @@ function ArticleList(props) {
 
   return (
     <>
-      <div>
-        {visibleArticles.length === 0 && (
-          <div ref={bottomObserverRef} style={{ height: "300px" }} />
-        )}
-        <div id="article-gallery">
-          <section id="articles-wrapper">
-            {visibleArticles.map((article, i) => (
-              <ArticleCard
-                key={article.id}
-                genre={props.genre}
-                article={article}
-              />
-            ))}
-          </section>
-        </div>
-        {visibleArticles.length !== 0 &&
-          visibleArticles.length !== filteredArticles.length && (
-            <div ref={bottomObserverRef} style={{ height: "10px" }} />
-          )}
+      <div id="article-gallery">
+        <section id="articles-wrapper">
+          {visibleArticles.map((article) => (
+            <ArticleCard key={article.id} genre={genre} article={article} />
+          ))}
+        </section>
       </div>
+      <div ref={bottomObserverRef} style={{ height: "10px" }} />
     </>
   );
 }
-
-export default ArticleList;
