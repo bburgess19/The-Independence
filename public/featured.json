@@ -16,11 +16,11 @@
     "alt": "Hands holding mushrooms"
   },
   {
-    "image_path": "/images/articles/the_tale_of_the_two_hour_marathon.png",
-    "title": "The Tale of the 2 Hour Marathon",
-    "slug": "the-tale-of-the-two-hour-marathon",
-    "genre_slug": "sports",
-    "text_position": "main-tc",
-    "alt": "Eliud Kipchoge running towards finish line"
+    "image_path": "/images/articles/congo_cobalt_conflict.jpeg",
+    "title": "Congo's Cobalt Conflict",
+    "slug": "congo-cobalt-conflict",
+    "genre_slug": "politics",
+    "text_position": "main-cc",
+    "alt": "Hands holding cobalt ore"
   }
 ]
