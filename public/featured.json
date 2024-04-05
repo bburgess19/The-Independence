@@ -1,19 +1,19 @@
 [
   {
-    "image_path": "/images/articles/a_tale_of_the_past.jpg",
-    "title": "A tale of the past: Koma Waidi",
-    "slug": "a-tale-of-the-past",
-    "genre_slug": "art",
-    "text_position": "main-tr",
-    "alt": "Children smiling"
+    "image_path": "/images/articles/ecowas.png",
+    "title": "Policy Brief: What can ECOWAS do to combat the flow of money from illegal wildlife trafficking?",
+    "slug": "ecowas-wildlife-trafficking",
+    "genre_slug": "science",
+    "text_position": "main-tl",
+    "alt": "Zebra in the wild"
   },
   {
-    "image_path": "/images/articles/mycology_a_hidden_kingdom_in_africa.jpg",
-    "title": "Mycology: A Hidden Kingdom in Africa",
-    "slug": "mycology-a-hidden-kingdom-in-africa",
-    "genre_slug": "science-and-technology",
-    "text_position": "main-br",
-    "alt": "Hands holding mushrooms"
+    "image_path": "/images/articles/black_feminism.png",
+    "title": "Black Feminism: Empowering the Path to an Inclusive Vision of Freedom",
+    "slug": "black-feminism",
+    "genre_slug": "diaspora",
+    "text_position": "main-tc",
+    "alt": "Group of friends smiling"
   },
   {
     "image_path": "/images/articles/congo_cobalt_conflict.jpeg",
