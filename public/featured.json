@@ -1,5 +1,21 @@
 [
   {
+    "image_path": "/images/articles/gone_are_days_of_apathy_cover.jpeg",
+    "title": "Opinion: Gone are the Days of Apathy to the Plight of the Congolese",
+    "slug": "op-ed-plight-of-congolese",
+    "genre_slug": "politics",
+    "text_position": "main-tl",
+    "alt": "Congolese children digging a hole"
+  },
+  {
+    "image_path": "/images/articles/world_record_holder_chepngetich.jpeg",
+    "title": "The Ever Changing Heights of Roadrunning As We Know It",
+    "slug": "the-ever-changing-heights-of-roadrunning",
+    "genre_slug": "sports",
+    "text_position": "main-br",
+    "alt": "Chepngetich crossing the finish line of race"
+  },       
+  {
     "image_path": "/images/articles/ecowas.png",
     "title": "Policy Brief: What can ECOWAS do to combat the flow of money from illegal wildlife trafficking?",
     "slug": "ecowas-wildlife-trafficking",
